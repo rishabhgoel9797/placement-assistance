@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 
 class studentController extends Controller
 {
-    public function addStudent()
+    public function index()
     {
     	return view('institute.addstudent');
     }

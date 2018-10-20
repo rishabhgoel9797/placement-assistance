@@ -25,6 +25,7 @@ Route::get('/institute/logout','Auth\LoginController@insLogout')->name('institut
 Route::get('addStudent','institute\studentController@index')->name('addStudent');
 Route::get('addTeacher','institute\teacherController@index')->name('addTeacher');
 Route::post('addTeacher','institute\teacherController@addTeacher')->name('addTeacherPost');
+Route::get('addCompany','institute\companyController@index')->name('addCompany');
 
 
 Route::prefix('teacher')->group(function(){

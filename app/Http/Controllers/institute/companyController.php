@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 
 class companyController extends Controller
 {
-    public function addCompany()
+    public function index()
     {
         return view('institute.addcompany');
     }
