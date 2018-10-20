@@ -30,7 +30,7 @@
         </div>
         <div class="form-group col-md-6 col-sm-6">
             <label for="reg-no">Registration No</label>
-            <input type="text" class="form-control input-sm" id="Reg-no" required="" placeholder="Enter Registartion number">
+            <input type="text" class="form-control input-sm" id="Reg-no" required="" placeholder="Enter Registration number">
         </div>
 
         <div class="form-group col-md-6 col-sm-6">
@@ -48,20 +48,24 @@
           <label for="Department">Department</label>
           <select class="form-control">
                         <option>Select</option>
-                       <option>Analytics</option>
-                       <option>Consulting</option>
-                       <option>Computer Science-Software-IT</option>
-                       <option>E-commerce</option>
-                       <option>Education</option>
-                       <option>Engineering And Technology</option>
-                       <option>Finance</option>
-                       <option>FMCG</option>
-                       <option>Healthcare</option>
-                       <option>Media/Entertainment</option>
-                       <option>Research And Development</option>
-                       <option>Telecom</option>
-                       <option>Others</option>
-                   </select>
+                        <option>Civil Engineering</option>
+                        <option>Mechanical Enginnering</option>
+                        <option>Automobile Engineering</option>
+                        <option>Aerospace Engineering</option>
+                        <option>Mechatronics</option>
+                        <option>Electronics And Communication</option>
+                        <option>Electrical And Electronics</option>
+                        <option>Electronics And Instrumentation</option>
+                        <option>Computer Science Engineering</option>
+                        <option>Information Technology</option>
+                        <option>Software Engineering</option>
+                        <option>Chemical Engineering</option>
+                        <option>Biotechnology</option>
+                        <option>Genetic Engineering</option>
+                        <option>Biomedical Engineering</option>
+                        <option>Food Process Engineering</option>
+                        <option>Nanotechnology</option>
+                    </select>
        </div>
     
     <div class="form-group col-md-6 col-sm-6">
@@ -93,11 +97,6 @@
             <input type="submit" class="btn btn-block" tabindex="3" value="Add Student"/>
     </div>
 </div>
-
-
-  
-
-
 </div>
 </div>
 </form>
