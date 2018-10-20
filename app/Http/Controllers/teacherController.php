@@ -15,4 +15,5 @@ class teacherController extends Controller
     {
         return view('teacherHome');
     }
+    
 }

@@ -9,10 +9,10 @@ use Auth;
 class teacherLoginController extends Controller
 {
     //
-    // public function __construct()
-    // {
-    //     $this->middleware('guest:teacher');
-    // }
+    public function __construct()
+    {
+        $this->middleware('guest:teacher',['except'=>['logout']]);
+    }
     public function index()
     {
         return view('auth.teacherLogin');
@@ -31,6 +31,11 @@ class teacherLoginController extends Controller
     //     $form_data=$request->all();
     //    return view('teacherHome');
 
+    }
+    public function logout()
+    {
+        Auth::guard('teacher')->logout();
+        return redirect('/');
     }
 
 }

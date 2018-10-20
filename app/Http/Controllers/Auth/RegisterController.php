@@ -50,6 +50,9 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => 'required|string|max:255',
+            'admin_name' => 'required|string|max:255',
+            'address' => 'required|string|max:255',
+            'phone' => 'required|min:10|numeric',
             'email' => 'required|string|email|max:255|unique:table_institute',
             'password' => 'required|string|min:6|confirmed',
         ]);
@@ -66,8 +69,11 @@ class RegisterController extends Controller
         $token = bin2hex(openssl_random_pseudo_bytes(40));
         return User::create([
             'institute_name' => $data['name'],
+            'admin_name'=>$data['admin_name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'phone'=>$data['phone'],
+            'address'=>$data['address'],
             'remember_token'=>$token
         ]);
     }
