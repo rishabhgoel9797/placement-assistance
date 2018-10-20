@@ -22,8 +22,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/institute/logout','Auth\LoginController@insLogout')->name('institute.logout');
-Route::get('addStudent','institute\studentController@addStudent')->name('addStudent');
-Route::get('addTeacher','institute\teacherController@addTeacher')->name('addTeacher');
+Route::get('addStudent','institute\studentController@index')->name('addStudent');
+Route::get('addTeacher','institute\teacherController@index')->name('addTeacher');
+Route::post('addTeacher','institute\teacherController@addTeacher')->name('addTeacherPost');
+
+
 Route::prefix('teacher')->group(function(){
     Route::get('/', 'teacherController@index')->name('teacher.dashboard');
     Route::get('/login', 'Auth\teacherLoginController@index')->name('teacher.login');
