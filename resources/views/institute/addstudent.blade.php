@@ -47,24 +47,24 @@
     <div class="form-group col-md-6 col-sm-6">
           <label for="Department">Department</label>
           <select class="form-control">
-                        <option>Select</option>
-                        <option>Civil Engineering</option>
-                        <option>Mechanical Enginnering</option>
-                        <option>Automobile Engineering</option>
-                        <option>Aerospace Engineering</option>
-                        <option>Mechatronics</option>
-                        <option>Electronics And Communication</option>
-                        <option>Electrical And Electronics</option>
-                        <option>Electronics And Instrumentation</option>
-                        <option>Computer Science Engineering</option>
-                        <option>Information Technology</option>
-                        <option>Software Engineering</option>
-                        <option>Chemical Engineering</option>
-                        <option>Biotechnology</option>
-                        <option>Genetic Engineering</option>
-                        <option>Biomedical Engineering</option>
-                        <option>Food Process Engineering</option>
-                        <option>Nanotechnology</option>
+                        <option value="">Select</option>
+                        <option value="Civil Engineering">Civil Engineering</option>
+                        <option value="Mechanical Enginnering">Mechanical Enginnering</option>
+                        <option value="Automobile Engineering">Automobile Engineering</option>
+                        <option value="Aerospace Engineering">Aerospace Engineering</option>
+                        <option value="Mechatronics">Mechatronics</option>
+                        <option value="Electronics And Communication">Electronics And Communication</option>
+                        <option value="Electrical And Electronics">Electrical And Electronics</option>
+                        <option value="Electronics And Instrumentation">Electronics And Instrumentation</option>
+                        <option value="Computer Science Engineering">Computer Science Engineering</option>
+                        <option value="Information Technology">Information Technology</option>
+                        <option value="Software Engineering">Software Engineering</option>
+                        <option value="Chemical Engineering">Chemical Engineering</option>
+                        <option value="Biotechnology">Biotechnology</option>
+                        <option value="Genetic Engineering">Genetic Engineering</option>
+                        <option value="Biomedical Engineering">Biomedical Engineering</option>
+                        <option value="Food Process Engineering">Food Process Engineering</option>
+                        <option value="Nanotechnology">Nanotechnology</option>
                     </select>
        </div>
     
