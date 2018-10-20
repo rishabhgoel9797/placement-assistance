@@ -39,27 +39,27 @@
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav side-nav">
                 <li>
-                  <a href="{{route('home')}}"><i class="fa fa-fw fa-search"></i> DASHBOARD</a>
+                  <a href="{{route('home')}}"><i class="fa fa-fw fa-home"></i> DASHBOARD</a>
                 </li>
                 <li>
-                    <a href="#" data-toggle="collapse" data-target="#submenu-1"><i class="fa fa-fw fa-star"></i>  COMPANY <i class="fa fa-fw fa-angle-down pull-right"></i></a>
+                    <a href="#" data-toggle="collapse" data-target="#submenu-1"><i class="fa fa-fw fa-briefcase"></i>  COMPANY <i class="fa fa-fw fa-angle-down pull-right"></i></a>
                     <ul id="submenu-1" class="collapse">
-                        <li><a href="#"><i class="fa fa-angle-double-right"></i> Add Company</a></li>
-                        <li><a href="#"><i class="fa fa-angle-double-right"></i> View Company</a></li>
+                        <li><a href="{{route('addCompany')}}"><i class="fa fa-user-plus"></i> Add Company</a></li>
+                        <li><a href="#"><i class="fa fa-list"></i> View Company</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="#" data-toggle="collapse" data-target="#submenu-2"><i class="fa fa-fw fa-user-plus"></i>  TEACHERS<i class="fa fa-fw fa-angle-down pull-right"></i></a>
+                    <a href="#" data-toggle="collapse" data-target="#submenu-2"><i class="fa fa-fw fa-user"></i>  TEACHERS<i class="fa fa-fw fa-angle-down pull-right"></i></a>
                     <ul id="submenu-2" class="collapse">
-                        <li><a href="{{route('addTeacher')}}"><i class="fa fa-angle-double-right"></i> Add Teacher</a></li>
-                        <li><a href="#"><i class="fa fa-angle-double-right"></i> View Teacher</a></li>
+                        <li><a href="{{route('addTeacher')}}"><i class="fa fa-user-plus"></i> Add Teacher</a></li>
+                        <li><a href="#"><i class="fa fa-list"></i> View Teacher</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="#" data-toggle="collapse" data-target="#submenu-3"><i class="fa fa-fw fa-user-plus"></i> STUDENTS<i class="fa fa-fw fa-angle-down pull-right"></i></a>
+                    <a href="#" data-toggle="collapse" data-target="#submenu-3"><i class="fa fa-fw fa-user"></i> STUDENTS<i class="fa fa-fw fa-angle-down pull-right"></i></a>
                     <ul id="submenu-3" class="collapse">
-                        <li><a href="{{route('addStudent')}}"><i class="fa fa-angle-double-right"></i> Add Student</a></li>
-                        <li><a href="#"><i class="fa fa-angle-double-right"></i> View Student</a></li>
+                        <li><a href="{{route('addStudent')}}"><i class="fa fa-user-plus"></i> Add Student</a></li>
+                        <li><a href="#"><i class="fa fa-list"></i> View Student</a></li>
                     </ul>
                 </li>
             </ul>
