@@ -6,17 +6,17 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Teachers extends Authenticatable
+class Students extends Authenticatable
 {
     //
     use Notifiable;
-    protected $guard='teacher';
-    protected $table = 'table_teachers';
+    protected $guard='student';
+    protected $table = 'table_students';
 
-    protected $primaryKey = 'teacher_id';
+    protected $primaryKey = 'student_id';
 
     protected $fillable = [
-        'teacher_id','institute_id','name', 'email', 'password','unique_id','program','department','phone','remember_token',
+        'student_id','teacher_id','institute_id','name', 'email', 'password','unique_id','phone','program','department','year','remember_token',
     ];
 
     /**

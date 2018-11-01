@@ -34,3 +34,10 @@ Route::prefix('teacher')->group(function(){
     Route::post('/login', 'Auth\teacherLoginController@login')->name('teacher.login.submit');
     Route::get('/logout','Auth\teacherLoginController@logout')->name('teacher.logout');
 });
+
+Route::prefix('student')->group(function(){
+    Route::get('/', 'studentController@index')->name('student.dashboard');
+    Route::get('/login', 'Auth\studentLoginController@index')->name('student.login');
+    Route::post('/login', 'Auth\studentLoginController@login')->name('student.login.submit');
+    Route::get('/logout','Auth\studentLoginController@logout')->name('student.logout');
+});

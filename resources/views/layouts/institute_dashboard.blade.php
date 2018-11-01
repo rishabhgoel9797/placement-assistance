@@ -9,10 +9,46 @@
 @yield('css')
 <link href="{{asset('css/institute.css')}}" rel="stylesheet">
 <script src="{{asset('js/institute.js')}}"></script>
+
+<style>
+nav
+{
+    background: #F17153;
+    background: -webkit-linear-gradient(#F17153, #F58D63, #f1ab53);
+    background: -o-linear-gradient(#F17153, #F58D63, #f1ab53);
+    background: -moz-linear-gradient(#F17153, #F58D63, #f1ab53);
+    background: linear-gradient(#F17153, #F58D63, #f1ab53);
+
+}
+.side-nav
+{
+    background: #F17153;
+    background: -webkit-linear-gradient(#F17153, #F58D63, #f1ab53);
+    background: -o-linear-gradient(#F17153, #F58D63, #f1ab53);
+    background: -moz-linear-gradient(#F17153, #F58D63, #f1ab53);
+    background: linear-gradient(#F17153, #F58D63, #f1ab53);
+}
+.navbar-inverse .navbar-nav>li>a
+{
+    color:#fff;
+}
+.list {
+    color: #fff;
+    list-style: none;
+}
+.list::first-line {
+    color: rgba(255, 255, 255, 0.5);
+}
+.list>li:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-left: 5px solid white;
+    color: white;
+}
+</style>
 </head>
 <body>
-<div id="throbber" style="display:none; min-height:120px;"></div>
-<div id="noty-holder"></div>
+{{-- <div id="throbber" style="display:none; min-height:120px;"></div>
+<div id="noty-holder"></div> --}}
 <div id="wrapper">
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="navbar-header">
@@ -37,7 +73,7 @@
         </ul>
         <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
-            <ul class="nav navbar-nav side-nav">
+            <ul class="nav navbar-nav side-nav list">
                 <li>
                   <a href="{{route('home')}}"><i class="fa fa-fw fa-home"></i> DASHBOARD</a>
                 </li>
