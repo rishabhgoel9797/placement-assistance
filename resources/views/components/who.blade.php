@@ -13,3 +13,11 @@
 <p>You are logged out as a teacher</p>
 </p>
 @endif
+
+@if(Auth::guard('student')->check())
+<p class="text-success">You are logged in as a student</p>
+@else
+<p class="text-danger">
+<p>You are logged out as a student</p>
+</p>
+@endif

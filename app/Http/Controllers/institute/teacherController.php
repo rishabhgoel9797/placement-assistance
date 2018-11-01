@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use Auth;
 use App\AddTeacher;
 use Validator;
+use App\Mail\TeacherInvitation;
+use Mail;
 class teacherController extends Controller
 {
     public function index()
@@ -38,6 +40,7 @@ class teacherController extends Controller
             'department'=>$form_data['department'],
             'remember_token'=>$t
         ]);
+        Mail::to($form_data['email'])->send(new TeacherInvitation(Auth::user()->institute_name));
         return redirect()->back()->with('message',$form_data['name'].' as a teacher has been successfully added');
     }
 }
