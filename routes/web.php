@@ -26,7 +26,8 @@ Route::get('addStudent','institute\studentController@index')->name('addStudent')
 Route::get('addTeacher','institute\teacherController@index')->name('addTeacher');
 Route::post('addTeacher','institute\teacherController@addTeacher')->name('addTeacherPost');
 Route::get('addCompany','institute\companyController@index')->name('addCompany');
-
+Route::get('profile','institute\profileController@index')->name('profile');
+Route::post('profile','institute\profileController@update_avatar')->name('profile');
 
 Route::prefix('teacher')->group(function(){
     Route::get('/', 'teacherController@index')->name('teacher.dashboard');

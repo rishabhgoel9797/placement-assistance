@@ -11,7 +11,7 @@ class teacherController extends Controller
 {
     public function index()
     {
-    	return view('institute.addteacher');
+    	return view('institute.addteacher',['user'=>Auth::user()]);
     }
     public function addTeacher(Request $request)
     {
