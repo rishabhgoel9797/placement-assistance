@@ -44,14 +44,16 @@
                
             </div>
     </div>
-<div class="panel panel-primary" style="margin:20px;">
-    <div class="panel-heading">
-            <h3 class="panel-title">Teacher Registration</h3>
+<div class="card" style="margin:20px;">
+    <div class="card-header">
+            <h3 class="card-title">Teacher Registration</h3>
     </div>
-<div class="panel-body">
+<div class="card-block">
 <form method="post" action="{{route('addTeacherPost')}}">
         @csrf
+
 <div class="col-md-12 col-sm-12">
+            <div class="row" style="margin-top:15px;">
     <div class="form-group col-md-4 col-sm-4">
             <label for="name">Name </label>
             <input type="text" class="form-control input-sm" name="name" id="Name" required="" value="{{ old('name') }}" placeholder="Enter Name">
@@ -64,11 +66,12 @@
             <label for="unique_id">Registration No</label>
             <input type="text" class="form-control input-sm" name="unique_id" id="unique_id" value="{{ old('unique_id') }}" required="" placeholder="Enter Registartion number">
         </div>
-
+</div>
+<div class="row">
         <div class="form-group col-md-6 col-sm-6">
             <label for="Program">Program</label>
            <select class="form-control" name="program" required value="{{ old('program') }}">
-             <option value="">Select Program</option>
+             <option value="">Select</option>
              <option value="B.Tech">B.Tech</option>
              <option value="M.Tech">M.Tech</option>
              <option value="MBA">MBA</option>
@@ -100,13 +103,8 @@
                     </select>
        </div>
     
-           
-    <div class="form-group">
-        <div class="row">
-    <div class="col-sm-2 col-sm-offset-5" >
-            <input type="submit" class="btn btn-primary btn-block" tabindex="3" value="Add Teacher"/>
-    </div>
-</div>
+  </div>         
+    <button type="submit" class="btn btn-primary d-block mx-auto">Add Teacher</button>
 </div>
 </div>
 </form>

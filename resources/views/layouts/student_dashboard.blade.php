@@ -5,6 +5,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
    <link href="{{asset('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('css/sb-admin.css')}}" rel="stylesheet">
+
+
     @yield('css')
 </head>
 
@@ -20,20 +22,26 @@
 
       <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
         <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
           <div class="input-group-append">
-            <button class="btn btn-primary" type="button">
-              <i class="fas fa-search"></i>
-            </button>
           </div>
         </div>
       </form>
-
       <ul class="navbar-nav ml-auto ml-md-0">
         <li class="nav-item dropdown no-arrow mx-1">
-          <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-bell fa-fw"></i>
           </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">
+            @if(count($ins_not)>0)
+            @foreach($ins_not as $i)
+             <a class="dropdown-item" href="#"><h5>{{$i->title}}</h5>{{$i->description}}</a>
+            <div class="dropdown-divider"></div>
+            @endforeach
+            @else
+             <a class="dropdown-item" href="#">No Notification by your Institute</a>
+            <div class="dropdown-divider"></div>
+            @endif
+          </div>
         </li>
         <li class="nav-item dropdown no-arrow mx-1">
           <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -45,49 +53,41 @@
             <i class="fas fa-user-circle fa-fw"></i>
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-            <a class="dropdown-item" href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+            <a class="dropdown-item" href="{{route('studentprofile')}}"><i class="fa fa-fw fa-user"></i> Profile</a>
             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal"><i class="fa fa-fw fa-power-off"></i> Logout</a>
           </div>
         </li>
       </ul>
 
     </nav>
-
     <div id="wrapper">
 
       <ul class="sidebar navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="index.html">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span>
+        <li class="nav-item">
+          <a class="nav-link" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-fw fa-briefcase"></i>
+            <span>Total Companies</span>
           </a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-fw fa-briefcase"></i>
-            <span>Companies</span>
+            <span>Eligibility</span>
           </a>
           <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-            <a class="dropdown-item" href="{{route('addCompany')}}"><i class="fa fa-user-plus"></i> Add Company</a>
-            <a class="dropdown-item" href="#"><i class="fa fa-list"></i> View Company</a>
+          <a class="dropdown-item" href="#"><i class="fa fa-graduation-cap"></i> Eligible</a>
+          <a class="dropdown-item" href="#"><i class="fa fa-graduation-cap"></i> Not Eligible</a>
           </div>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-fw fa-user"></i>
-            <span>Teachers</span></a>
-            <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-            <a class="dropdown-item" href="{{route('addTeacher')}}"><i class="fa fa-user-plus"></i> Add Teacher</a>
-            <a class="dropdown-item" href="#"><i class="fa fa-list"></i> View Teacher</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-fw fa-graduation-cap"></i>
-            <span>Students</span></a>
-            <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-            <a class="dropdown-item" href="{{route('addStudent')}}"><i class="fa fa-user-plus"></i> Add Student</a>
-            <a class="dropdown-item" href="#"><i class="fa fa-list"></i> View Student</a>
+            <i class="fas fa-fw fa-briefcase"></i>
+            <span>Application Status</span>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+          <a class="dropdown-item" href="#"><i class="fa fa-check"></i> Applied</a>
+          <a class="dropdown-item" href="#"><i class="fa fa-times"></i> Rejected</a>
+          <a class="dropdown-item" href="#"><i class="fa fa-trophy"></i> Offered</a>
           </div>
         </li>
       </ul>
@@ -116,7 +116,7 @@
           <div class="modal-body">Are you sure you want to Logout?</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="login.html">Logout</a>
+            <a class="btn btn-primary" href="{{route('student.logout')}}">Logout</a>
           </div>
         </div>
       </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 
 class teacherController extends Controller
 {
@@ -13,7 +14,8 @@ class teacherController extends Controller
     }
     public function index()
     {
-        return view('teacherHome');
+    	$ins_not=DB::table('institute_notifications')->get();
+        return view('teacherHome',['ins_not'=>$ins_not]);
     }
     
 }
