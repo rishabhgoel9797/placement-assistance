@@ -17,27 +17,58 @@
 </style>
 @endsection
 @section('content')
+<div class="row">
+        <div class="col-lg-12"><br>
+            @if(session()->has('message'))
+                <div class="alert alert-success">
+                    {{ session()->get('message') }}
+                </div>
+            @endif
+            @if(session()->has('error'))
+                <div class="alert alert-danger">
+                    {{ session()->get('error') }}
+                </div>
+            @endif
+            @if(count($errors)>0)
+            <div style="margin-top:20px;">
+            <div class="alert alert-danger">
+                <ul>
+                @foreach ($errors->all() as $error)
+          <li>{{ $error }}</li>
+            @endforeach
+                </ul>
+            </div>
+            </div>
+             @endif
+           
+        </div>
+</div>
 <div class="card" style="margin:20px;">
     <div class="card-header">
             <h3 class="card-title">Student Registration</h3>
     </div>
 <div class="card-block">
-    <form>
+<form action="{{route('addStudent')}}" method="post">
+    @csrf
 <div class="col-md-12 col-sm-12">
     <div class="row" style="margin-top:15px;">
-    <div class="form-group col-md-6 col-sm-6">
+    <div class="form-group col-md-4 col-sm-4">
             <label for="name">Name </label>
-            <input type="text" class="form-control input-sm" id="Name" required="" placeholder="Enter Name">
+            <input type="text" class="form-control input-sm" name="name" id="Name" required="" placeholder="Enter Name">
         </div>
-        <div class="form-group col-md-6 col-sm-6">
-            <label for="reg-no">Registration No</label>
-            <input type="text" class="form-control input-sm" id="Reg-no" required="" placeholder="Enter Registration number">
+        <div class="form-group col-md-4 col-sm-4">
+                <label for="email">Email</label>
+                <input type="email" class="form-control input-sm" name="email" id="email" required="" placeholder="Enter Email">
+            </div>
+        <div class="form-group col-md-4 col-sm-4">
+            <label for="unique_id">Registration No</label>
+            <input type="text" class="form-control input-sm" name="unique_id" id="Reg-no" required="" placeholder="Enter Registration number">
         </div>
 </div>
 <div class="row">
         <div class="form-group col-md-6 col-sm-6">
             <label for="Program">Program</label>
-           <select class="form-control">
+           <select class="form-control" name="program">
              <option>Select</option>
              <option value="B.Tech">B.Tech</option>
              <option value="M.Tech">M.Tech</option>
@@ -48,7 +79,7 @@
 
     <div class="form-group col-md-6 col-sm-6">
           <label for="Department">Department</label>
-          <select class="form-control">
+          <select class="form-control" name="department">
                         <option value="">Select</option>
                         <option value="Civil Engineering">Civil Engineering</option>
                         <option value="Mechanical Enginnering">Mechanical Enginnering</option>
@@ -73,7 +104,7 @@
     <div class="row">
     <div class="form-group col-md-6 col-sm-6">
             <label for="Year">Year</label>
-            <select class="form-control">
+            <select class="form-control" name="year">
              <option>Select</option>
              <option value="3">3</option>
              <option value="4">4</option>
@@ -85,10 +116,13 @@
     
     <div class="form-group col-md-6 col-sm-6">
             <label for="Teacher">Teacher</label>
-             <select class="form-control">
-             <option>Select</option>
-             <option value=""></option>
-             <option value=""></option>
+             <select class="form-control" name="select_teacher">
+                    <option value="">--Select Teacher to mentor student--</option>
+             @if(count($teachers)>0)
+                @foreach($teachers as $t)
+             <option value="{{$t->teacher_id}}">{{$t->name}}</option>
+                @endforeach
+             @endif
              </select>
         </div>
 </div>

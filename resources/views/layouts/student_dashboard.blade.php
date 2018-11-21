@@ -34,7 +34,14 @@
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">
             @if(count($ins_not)>0)
             @foreach($ins_not as $i)
-             <a class="dropdown-item" href="#"><h5>{{$i->title}}</h5>{{$i->description}}</a>
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+              <img src="/uploads/avatars/institute/{{$ins_pro}}" style="width:50px;height: 50px; border-radius: 50%;">
+                </div>
+                <div class="col-md-6 col-sm-6">
+              <a class="dropdown-item" href="#"><h5>{{$i->title}}</h5>{{$i->description}}</a>
+                </div>
+              </div>
             <div class="dropdown-divider"></div>
             @endforeach
             @else

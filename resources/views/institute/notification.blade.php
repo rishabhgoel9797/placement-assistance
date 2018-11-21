@@ -43,25 +43,86 @@
                
             </div>
 </div>
-<div class="card" style="margin:20px;">
+<div class="row">
+<div class="col-md-8">
+<div class="card">
     <div class="card-header">
-            <h3 class="card-title">Notification Panel</h3>
+        Notification Panel
     </div>
-<div class="card-block">
-<form action="{{route('addNotification')}}" method="post">
-  @csrf
-<div class="col-md-12 col-sm-12">
-    <div class="row" style="margin-top:15px;">
-    <div class="form-group col-md-12 col-sm-12">
-            <label for="name">Title</label>
-            <input type="text" class="form-control input-sm" id="Title" name="title" required="" placeholder="Enter Title">
-        </div>
-        <div class="form-group col-md-12 col-sm-12">
-            <label for="reg-no">Description</label>
-            <textarea class="form-control input-sm" id="Description" name="description" rows="3" required="" placeholder="Enter Description"></textarea>
-        </div>
+    <div class="card-body">
+        <form action="{{route('addNotification')}}" method="post">
+            @csrf
+          
+              <div class="row" style="margin-top:15px;">
+              <div class="form-group col-md-12 col-sm-12">
+                      <label for="name">Title</label>
+                      <input type="text" class="form-control input-sm" id="Title" name="title" required="" placeholder="Enter Title">
+                  </div>
+                  <div class="form-group col-md-12 col-sm-12">
+                      <label for="reg-no">Description</label>
+                      <textarea class="form-control input-sm" id="Description" name="description" rows="3" required="" placeholder="Enter Description"></textarea>
+                  </div>
+          </div>
+          <button type="submit" class="btn btn-primary d-block mx-auto">Notify</button>
+          </form>
+    </div>
+  </div>
+    </div>
+    <div class="col-md-4">
+            <div class="card" style="height:377px;">
+                    <div class="card-header">
+                        Number of Notifications Sent
+                    </div>
+                    <div class="card-body" style="text-align:center">
+                        <h1 style="font-size:230px;">{{$ins_not}}</h1>                        
+                    </div>
+                  </div>
+    </div>
 </div>
-<button type="submit" class="btn btn-primary d-block mx-auto">Notify</button>
-</form>
+<div class="row" style="margin-top:20px;">
+<div class="col-md-12">
+        <div class="card">
+                <div class="card-header">
+                    Notifications Details
+                </div>
+                <div class="card-body">
+        <table id="example" class="table table-striped table-bordered" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Serial Number</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if(count($notifications)>0)
+                    @foreach($notifications as $n)
+                    <tr>
+                    <td>{{$count++}}</td>
+                    <td>{{$n->title}}</td>
+                    <td>{{$n->description}}</td>
+                    </tr>
+                    @endforeach
+                    @endif
+                </tbody>
+                {{-- <tfoot>
+                    <tr>
+                        <th>Serial Number</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                    </tr>
+                </tfoot> --}}
+            </table>
 </div>
+</div>
+</div>
+</div>
+@endsection
+
+@section('script')
+<script>
+$(document).ready(function() {
+    $('#example').DataTable();
+} );
+</script>
 @endsection
