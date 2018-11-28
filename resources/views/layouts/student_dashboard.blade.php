@@ -1,20 +1,25 @@
 <html>
 <head>
-<title>Institute Dashboard</title>
+<title>Student Dashboard</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
    <link href="{{asset('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('css/sb-admin.css')}}" rel="stylesheet">
-
+   <style type="text/css">
+     label
+      {
+        font-weight: bold;
+      }
+   </style>
 
     @yield('css')
 </head>
 
-<body id="page-top">
+<body>
 
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-      <a class="navbar-brand mr-1" href="index.html">Placera</a>
+      <a class="navbar-brand mr-1" href="#">Student</a>
 
       <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
         <i class="fas fa-bars"></i>
@@ -30,14 +35,15 @@
         <li class="nav-item dropdown no-arrow mx-1">
           <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-bell fa-fw"></i>
+            <span class="badge badge-danger">9+</span>
           </a>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown" style="min-width: 20rem;">
             @if(count($ins_not)>0)
             @foreach($ins_not as $i)
             <div class="row">
-                <div class="col-md-6 col-sm-6">
+                <!-- <div class="col-md-6 col-sm-6">
               <img src="/uploads/avatars/institute/{{$ins_pro}}" style="width:50px;height: 50px; border-radius: 50%;">
-                </div>
+                </div> -->
                 <div class="col-md-6 col-sm-6">
               <a class="dropdown-item" href="#"><h5>{{$i->title}}</h5>{{$i->description}}</a>
                 </div>
@@ -77,18 +83,29 @@
           </a>
         </li>
         <li class="nav-item dropdown">
+
           <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-fw fa-briefcase"></i>
-            <span>Eligibility</span>
+            <i class="fas fa-fw fa-user"></i>
+            <span>Profile</span>
           </a>
           <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="#"><i class="fa fa-graduation-cap"></i> Eligible</a>
-          <a class="dropdown-item" href="#"><i class="fa fa-graduation-cap"></i> Not Eligible</a>
+          <a class="dropdown-item" href="{{route('addProfile')}}"><i class="fa fa-plus"></i> Add Profile</a>
+          <a class="dropdown-item" href="#"><i class="fa fa-edit"></i> Update Profile</a>
           </div>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-fw fa-briefcase"></i>
+            <span>Eligibility</span>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+          <a class="dropdown-item" href="#"><i class="fa fa-check"></i> Eligible</a>
+          <a class="dropdown-item" href="#"><i class="fa fa-times"></i> Not Eligible</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-fw fa-laptop-code"></i>
             <span>Application Status</span>
           </a>
           <div class="dropdown-menu" aria-labelledby="pagesDropdown">
@@ -106,10 +123,6 @@
   </div>
 
     </div>
-
-    <a class="scroll-to-top rounded" href="#page-top">
-      <i class="fas fa-angle-up"></i>
-    </a>
 
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -135,7 +148,7 @@
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <script src="{{asset('js/sb-admin.min.js')}}"></script>
-
+    
 @yield('script')
 </body>
 </html>

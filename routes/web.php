@@ -40,6 +40,7 @@ Route::prefix('teacher')->group(function(){
     Route::get('/logout','Auth\teacherLoginController@logout')->name('teacher.logout');
     Route::get('teacherprofile','teacher\teacherprofileController@index')->name('teacherprofile');
     Route::post('teacherprofile','teacher\teacherprofileController@update_avatar')->name('teacherprofile');
+    Route::get('sendNotification','teacher\sendnotificationController@sendNotification')->name('sendNotification');
 });
 
 Route::prefix('student')->group(function(){
@@ -47,6 +48,7 @@ Route::prefix('student')->group(function(){
     Route::get('/login', 'Auth\studentLoginController@index')->name('student.login');
     Route::post('/login', 'Auth\studentLoginController@login')->name('student.login.submit');
     Route::get('/logout','Auth\studentLoginController@logout')->name('student.logout');
+    Route::get('addProfile','student\addprofileController@addprofile')->name('addProfile');
     Route::get('studentprofile','student\studentprofileController@index')->name('studentprofile');
     Route::post('studentprofile','student\studentprofileController@update_avatar')->name('studentprofile');
 });

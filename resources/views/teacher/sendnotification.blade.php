@@ -1,4 +1,4 @@
-@extends('layouts.institute_dashboard')
+@extends('layouts.teacher_dashboard')
 @section('css')
 <style type="text/css">
 #deceased{
@@ -62,8 +62,12 @@
                       <label for="reg-no">Description</label>
                       <textarea class="form-control input-sm" id="Description" name="description" rows="3" required="" placeholder="Enter Description"></textarea>
                   </div>
+                  <div class="form-group col-md-12 col-sm-12">
+                      <label for="reg-no">URL</label>
+                      <textarea class="form-control input-sm" id="Url" name="url" rows="3" required="" placeholder="Enter URL"></textarea>
+                  </div>
           </div>
-          <button type="submit" class="btn btn-primary d-block mx-auto">Notify</button>
+          <button type="submit" class="btn btn-primary d-block mx-auto">Notify Students</button>
           </form>
     </div>
   </div>
@@ -74,46 +78,10 @@
                         Number of Notifications Sent
                     </div>
                     <div class="card-body" style="text-align:center">
-                        <h1 style="font-size:120px; margin-top: 45px">{{$ins_not}}</h1>                        
+                        <h1 style="font-size:230px;">{{$ins_not}}</h1>                        
                     </div>
                   </div>
     </div>
-</div>
-<div class="row" style="margin-top:20px;">
-<div class="col-md-12">
-        <div class="card">
-                <div class="card-header">
-                    Notifications Details
-                </div>
-                <div class="card-body">
-        <table id="example" class="table table-striped table-bordered" style="width:100%">
-                <thead>
-                    <tr>
-                        <th>Serial Number</th>
-                        <th>Title</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @if(count($notifications)>0)
-                    @foreach($notifications as $n)
-                    <tr>
-                    <td>{{$count++}}</td>
-                    <td>{{$n->title}}</td>
-                    <td>{{$n->description}}</td>
-                    </tr>
-                    @endforeach
-                    @endif
-                </tbody>
-                {{-- <tfoot>
-                    <tr>
-                        <th>Serial Number</th>
-                        <th>Title</th>
-                        <th>Description</th>
-                    </tr>
-                </tfoot> --}}
-            </table>
-</div>
 </div>
 </div>
 </div>

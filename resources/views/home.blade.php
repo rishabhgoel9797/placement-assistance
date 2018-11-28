@@ -7,7 +7,7 @@
                   <div class="card-body-icon">
                     <i class="fas fa-fw fa-briefcase"></i>
                   </div>
-                  <div class="mr-5"><p>{{$comp_count}}</p>Companies</div>
+                  <div class="mr-5">Companies<div>{{$comp_count}}</div></div>
                 </div>
                 <a class="card-footer text-white clearfix small z-1" href="#">
                   <span class="float-left">View Details</span>
@@ -23,7 +23,7 @@
                   <div class="card-body-icon">
                     <i class="fas fa-fw fa-list"></i>
                   </div>
-                  <div class="mr-5"><p>{{$tea_count}}</p>Teachers</div>
+                  <div class="mr-5">Teachers<div>{{$tea_count}}</div></div>
                 </div>
                 <a class="card-footer text-white clearfix small z-1" href="#">
                   <span class="float-left">View Details</span>
@@ -39,7 +39,7 @@
                   <div class="card-body-icon">
                     <i class="fas fa-fw fa-graduation-cap"></i>
                   </div>
-                  <div class="mr-5"><p>{{$stu_count}}</p>Students</div>
+                  <div class="mr-5">Students<div>{{$stu_count}}</div></div>
                 </div>
                 <a class="card-footer text-white clearfix small z-1" href="#">
                   <span class="float-left">View Details</span>
@@ -55,7 +55,7 @@
                   <div class="card-body-icon">
                     <i class="fas fa-fw fa-bell"></i>
                   </div>
-                <div class="mr-5"><p>{{$ins_not}}</p> Notifications Sent</div>
+                <div class="mr-5">Notifications Sent<div>{{$ins_not}}</div></div>
                 
                 </div>
                 <a class="card-footer text-white clearfix small z-1" href="#">

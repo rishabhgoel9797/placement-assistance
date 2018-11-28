@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Institute Dashboard</title>
+<title>Teacher Dashboard</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
    <link href="{{asset('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
@@ -12,7 +12,7 @@
 
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-      <a class="navbar-brand mr-1" href="index.html">Placera</a>
+      <a class="navbar-brand mr-1" href="#">Teacher</a>
 
       <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
         <i class="fas fa-bars"></i>
@@ -29,6 +29,7 @@
         <li class="nav-item dropdown no-arrow mx-1">
           <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-bell fa-fw"></i>
+            <span class="badge badge-danger">9+</span>
           </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">
             @if(count($ins_not)>0)
@@ -69,6 +70,12 @@
           <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-fw fa-briefcase"></i>
             <span>Companies</span>
+          </a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="{{route('sendnotification')}}">
+            <i class="fas fa-fw fa-bell"></i>
+            <span>Notification</span>
           </a>
         </li>
         <li class="nav-item">
