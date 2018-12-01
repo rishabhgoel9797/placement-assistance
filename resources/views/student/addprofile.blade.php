@@ -50,8 +50,8 @@
 a{
    color: black; 
 }
-
  </style>
+ <link href="{{asset("css/bootstrap-tagsinput.css")}}" rel="stylesheet">
 @endsection
 @section('content')
 
@@ -370,7 +370,7 @@ a{
             </div>
             <div class="card-body">
                 <div>
-                     <h3>Internship/Work Experience</h3>
+                     <h3>Latest Internship/Work Experience</h3>
                 </div>
                 <div class="row" style="margin-top:15px;">
                 <div class="form-group col-lg-6 col-md-6">
@@ -428,7 +428,7 @@ a{
                 </div>
             </div>
                 <div>
-                     <h3>Projects</h3>
+                     <h3>Best Project</h3>
                 </div>
                 <div class="row">
                 <div class="form-group col-lg-6 col-md-6">
@@ -475,7 +475,11 @@ a{
                     </select>
                 </div>
             </div>
-                <div>
+            
+            <button type="button" class="btn btn-info float-right" onclick="add_tech_skills()">Add More</button>
+            <div id="tech_skills_fields" style="margin-top:40px;">
+                </div>      
+            <div>
                      <h3>Personal Skills</h3>
                 </div>
                 <div class="row">
@@ -506,7 +510,11 @@ a{
                     </select>
                 </div>
             </div>
-                <button class="btn btn-primary nextBtn float-right" type="button">Next</button>
+            <button type="button" class="btn btn-info float-right" onclick="add_personal_skills()">Add More</button>
+            
+            <div id="personal_skills_fields" style="margin-top:40px;">
+                </div>       
+            <button class="btn btn-primary nextBtn" type="button">Next</button>
             </div>
         </div>
         <div class="card setup-content" id="step-5">
@@ -517,7 +525,7 @@ a{
                 <div class="form-group col-lg-12">
                     <label class="col-form-label">Category</label>
                     <input maxlength="200" type="text" required="required"
-                    class="form-control" placeholder="Eg:Singing,Dancing ">
+                    class="form-control" placeholder="Eg:Singing,Dancing " data-role="tagsinput">
                 </div>
                 <div class="form-group col-lg-12">
                     <label class="col-form-label">Description</label>
@@ -533,28 +541,32 @@ a{
             </div>
             <div class="card-body">
             	<div class="row">
-                <div class="form-group col-lg-6 col-md-6">
+                <div class="form-group col-lg-4 col-md-4">
                     <label class="col-form-label">Name</label>
                     <input maxlength="100" type="text" required="required" class="form-control"
                     placeholder="Enter Certification Name">
                 </div>
-                <div class="form-group col-lg-6 col-md-6">
+                <div class="form-group col-lg-4 col-md-4">
                     <label class="col-form-label">Issuing Authority</label>
                     <input maxlength="100" type="text" required="required"
                     class="form-control" placeholder="Eg:Microsoft,Google">
                 </div>
-                <div class="form-group col-lg-12">
+                <div class="form-group col-lg-4 col-md-4">
                     <label class="col-form-label">Certification Url</label>
                     <input maxlength="200" type="url" required="required"
                     class="form-control" placeholder="https://www.abc.com">
                 </div>
             </div>
-                <button class="btn btn-primary nextBtn float-right" type="submit">Finish</button>
+            <button type="button" class="btn btn-info float-right" onclick="add_certificate()">Add More</button>
+            <div id="certification_fields" style="margin-top:40px;">
+                </div>   
+            <button class="btn btn-primary nextBtn" type="submit">Finish</button>
             </div>
         </div>
     </form>
 @endsection
 @section('script')
+<script src="{{asset("js/bootstrap-tagsinput.min.js")}}"></script>
 <script type="text/javascript">
 	$(document).ready(function () {
 
@@ -615,4 +627,56 @@ a{
   }, false);
 }());
 </script>
+<script>
+    let cert=1;
+    let tech_skills=1;
+    let pers_skills=1;
+    function add_tech_skills()
+    {
+        tech_skills++;
+        let objTo = document.getElementById('tech_skills_fields')
+        let divtest = document.createElement("div");
+        divtest.setAttribute("class", "form-group removeclassTech"+tech_skills);
+        let rdiv = 'removeclass'+tech_skills;
+       
+        divtest.innerHTML =' <div class="row"><div class="form-group col-lg-6 col-md-6"><label class="col-form-label">Skills</label><input maxlength="200" type="text" required="required" class="form-control"placeholder="Enter Technical Skills"></div><div class="form-group col-lg-6 col-md-6"><label class="col-form-label">Proficiency</label><select class="form-control"><option>Select</option><option>Beginner</option><option>Intermediate</option><option>Advance</option><option>Professional</option></select><div class="float-right"><div class="input-group-btn"><button class="btn btn-danger" type="button"  onclick="remove_tech_skills('+ tech_skills +')" style="margin-top:15px;"> Remove </button> </div></div></div></div>';
+        objTo.appendChild(divtest)
+    }
+    function remove_tech_skills(rid)
+    {
+        $('.removeclassTech'+rid).remove();
+    }
+    function add_personal_skills()
+    {
+        pers_skills++;
+        let objTo = document.getElementById('personal_skills_fields')
+        let divtest = document.createElement("div");
+        divtest.setAttribute("class", "form-group removeclassPers"+pers_skills);
+        let rdiv = 'removeclass'+pers_skills;
+       
+        divtest.innerHTML ='<div class="row"><div class="form-group col-lg-6 col-md-6"><label class="col-form-label">Skills</label><select class="form-control"><option>Select</option><option>Communication</option><option>Ability to Work Under Pressure</option><option>Decision Making</option><option>Time Management</option><option>Self-motivation</option><option>Conflict Resolution</option><option>Leadership</option><option>Adaptability</option><option>Teamwork</option><option>Creativity</option></select> </div><div class="form-group col-lg-6 col-md-6"><label class="col-form-label">Proficiency</label><select class="form-control"><option>Select</option><option>Beginner</option><option>Intermediate</option><option>Advance</option><option>Professional</option></select><div class="float-right"><div class="input-group-btn"><button class="btn btn-danger" type="button"  onclick="remove_pers_skills('+ pers_skills +')" style="margin-top:15px;"> Remove </button> </div></div></div></div>';
+        objTo.appendChild(divtest)
+    }
+    
+    function remove_pers_skills(rid)
+    {
+        $('.removeclassPers'+rid).remove();
+    }
+    function add_certificate()
+    {
+        cert++;
+        let objTo = document.getElementById('certification_fields')
+        let divtest = document.createElement("div");
+        divtest.setAttribute("class", "form-group removeclassCert"+cert);
+        let rdiv = 'removeclass'+cert;
+       
+        divtest.innerHTML ='<div class="row"><div class="form-group col-lg-4 col-md-4"><label class="col-form-label">Name</label><input maxlength="100" type="text" required="required" class="form-control"placeholder="Enter Certification Name"></div><div class="form-group col-lg-4 col-md-4"><label class="col-form-label">Issuing Authority</label><input maxlength="100" type="text" required="required"class="form-control" placeholder="Eg:Microsoft,Google"></div><div class="form-group col-lg-4 col-md-4"><label class="col-form-label">Certification Url</label><input maxlength="200" type="url" required="required"class="form-control" placeholder="https://www.abc.com"><div class="float-right"><div class="input-group-btn"><button class="btn btn-danger" type="button"  onclick="remove_certification('+ cert +')" style="margin-top:15px;"> Remove </button> </div></div></div></div>';
+        objTo.appendChild(divtest)
+    }
+    function remove_certification(rid)
+    {
+        $('.removeclassCert'+rid).remove();
+    }
+
+    </script>
 @endsection

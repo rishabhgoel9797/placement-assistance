@@ -40,6 +40,10 @@ class studentprofileController extends Controller
        	$user->save();
        }
 
-       return view('student.profilestudent',array('user' => Auth::user()));
+       $student=Auth::guard('student')->user();
+       $institute_id=Students::where('student_id',$student->student_id)->value('institute_id');
+       $ins_pro=User::where('institute_id',$institute_id)->value('avatar');
+       $ins_not=DB::table('institute_notifications')->where('institute_id',$institute_id)->get();
+       return view('student.profilestudent',array('user' => Auth::user(),'ins_not'=>$ins_not,'ins_pro'=>$ins_pro));
     }
 }
