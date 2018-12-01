@@ -96,10 +96,11 @@
     font-weight: 600;
     color: #0062cc;
 }
+
 </style>
 @endsection
 @section('content')
-<div class="container emp-profile">
+<div class="container emp-profile" >
             <form enctype="multipart/form-data" method="post" action="{{route('studentprofile')}}">
                 @csrf
                 <div class="row">
@@ -248,4 +249,5 @@
                 </div>
             </form>           
         </div>
+
 @endsection
