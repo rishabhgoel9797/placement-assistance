@@ -96,25 +96,25 @@ a{
                 <div class="col-lg-6 col-md-6">
                     <div class="form-group">
                     <label class="col-form-label">Name</label>
-                    <input maxlength="100" type="text" required class="form-control"
+                    <input maxlength="100" type="text"  name="name" required class="form-control"
                     placeholder="Enter Full Name">
                 </div>
                 </div>
                 <div class="form-group col-lg-6 col-md-6">
                     <label class="col-form-label">Email</label>
-                    <input maxlength="100" type="email" required class="form-control"
+                    <input maxlength="100" type="email" name="email" required class="form-control"
                     placeholder="Enter Email">
                 </div>
                 </div>
             <div class="row">
                 <div class="form-group col-lg-6 col-md-6">
                     <label class="col-form-label">Registration Number</label>
-                    <input maxlength="100" type="text" required
+                    <input maxlength="100" type="text" name="regno" required
                     class="form-control" placeholder="Enter Registration Number">
                 </div>
                 <div class="form-group col-lg-6 col-md-6">
                     <label class="col-form-label">Date Of Birth</label>
-                    <input type="date" required class="form-control"
+                    <input type="date" name="dob" required class="form-control"
                     placeholder="Enter DOB">
                 </div>
             </div>
@@ -122,7 +122,7 @@ a{
                 <div class="form-group col-lg-6 col-md-6">
                     <label class="col-form-label">Gender</label>
                     <br>
-                    <select class="form-control">
+                    <select class="form-control" name="gender">
                         <option>Select</option>
                         <option>Male</option>
                         <option>Female</option>
@@ -131,19 +131,19 @@ a{
                 </div>
                 <div class="form-group col-lg-6 col-md-6">
                     <label class="col-form-label">Permanent Address</label>
-                    <input maxlength="100" type="text" required class="form-control"
+                    <input maxlength="100" type="text" name="address" required class="form-control"
                     placeholder="Enter Address">
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col-lg-6 col-md-6">
                     <label class="col-form-label">Contact</label>
-                    <input maxlength="10" minlength="10" type="text" required
+                    <input maxlength="10" minlength="10" type="text" name="contact" required
                     class="form-control" placeholder="1234567890">
                 </div>
                 <div class="form-group col-lg-6 col-md-6">
                     <label class="col-form-label">Alternate Contact</label>
-                    <input maxlength="10" type="text" class="form-control"
+                    <input maxlength="10" type="text" name="altcontact" class="form-control"
                     placeholder="1234567890">
                 </div>
             </div>
@@ -162,73 +162,73 @@ a{
                 <div class="row" style="margin-top:15px;">
                 <div class="form-group col-lg-6 col-md-6">
                     <label class="col-form-label">School/Institution</label>
-                    <input maxlength="200" type="text" required="required"
+                    <input maxlength="200" type="text" required="required" name="school" 
                     class="form-control" placeholder="Enter School/Institution Name">
                 </div>
                 <div class="form-group col-lg-6 col-md-6">
                     <label class="col-form-label">Board</label>
-                    <select class="form-control">
-                        <option>Select</option>
-                        <option>Andhra Pradesh Board of Secondary Education</option>
-                        <option>Andhra Pradesh Board of Intermediate Education</option>
-                        <option>Andhra Pradesh Open School Society</option>
-                        <option>Board of Higher Secondary Education Delhi</option>
-                        <option>Assam Higher Secondary Education Council</option>
-                        <option>Assam State Open School</option>
-                        <option>Bihar Board of Open Schooling &amp; Examination</option>
-                        <option>Bihar Sanskrit Shiksha Board</option>
-                        <option>Bihar School Examination Board</option>
-                        <option>Central Board of Secondary Education</option>
-                        <option>Central Board of Education, Ajmer, Delhi</option>
-                        <option>Chhattisgarh Board of Secondary Education</option>
-                        <option>Council for the Indian School Certificate Examinations</option>
-                        <option>Grameen Mukt Vidhyalayi Shiksha Sansthan</option>
-                        <option>Goa Board of Secondary &amp; Higher Secondary Education</option>
-                        <option>Gujarat Secondary Education Board</option>
-                        <option>Haryana Board of School Education</option>
-                        <option>Himachal Pradesh Board of School Education</option>
-                        <option>Himachal Pradesh State Open School</option>
-                        <option>Jammu and Kashmir State Board of School Education</option>
-                        <option>Jammu and Kashmir State Open School</option>
-                        <option>Jharkhand Academic Council</option>
-                        <option>Karnataka Secondary Education Examination Board</option>
-                        <option>Kerala Higher Secondary Examination Board</option>
-                        <option>Kerala State Open School</option>
-                        <option>Board of Secondary Education, Madhya Pradesh</option>
-                        <option>Madhya Pradesh State Open School</option>
-                        <option>Maharashtra State Board of Secondary and Higher Secondary Education</option>
-                        <option>Meghalaya Board of School Education</option>
-                        <option>Mizoram Board of School Education</option>
-                        <option>Nagaland Board of School Education</option>
-                        <option>National Institute of Open Schooling</option>
-                        <option>Odisha Board of Secondary Education</option>
-                        <option>Odisha Council of Higher Secondary Education</option>
-                        <option>Punjab School Education Board</option>
-                        <option>Board of Secondary Education, Rajasthan</option>
-                        <option>Rajasthan State Open School</option>
-                        <option>Tamil Nadu Board of Secondary Education</option>
-                        <option>Telangana Board of Intermediate Education</option>
-                        <option>Telangana Board of Secondary Education</option>
-                        <option>Tripura Board of Secondary Education</option>
-                        <option>Board of High School and Intermediate Education Uttar Pradesh</option>
-                        <option>Uttarakhand Board of School Education</option>
-                        <option>West Bengal Board of Madrasah Education</option>
-                        <option>West Bengal Board of Primary Education</option>
-                        <option>West Bengal Board of Secondary Education</option>
-                        <option>West Bengal Council of Higher Secondary Education</option>
-                        <option>West Bengal Council of Rabindra Open Schooling</option>
+                    <select class="form-control" name="board">
+                        <option value="">Select</option>
+<option value="Andhra Pradesh Board of Secondary Education">Andhra Pradesh Board of Secondary Education</option>
+<option value="Andhra Pradesh Board of Intermediate Education">Andhra Pradesh Board of Intermediate Education</option>
+<option value="Andhra Pradesh Open School Society">Andhra Pradesh Open School Society</option>
+<option value="Board of Higher Secondary Education Delhi">Board of Higher Secondary Education Delhi</option>
+<option value="Assam Higher Secondary Education Council">Assam Higher Secondary Education Council</option>
+<option value="Assam State Open School">Assam State Open School</option>
+<option value="ihar Board of Open Schooling &amp; Examination">Bihar Board of Open Schooling &amp; Examination</option>
+<option value="Bihar Sanskrit Shiksha Board">Bihar Sanskrit Shiksha Board</option>
+<option value="Bihar School Examination Board">Bihar School Examination Board</option>
+<option value="Central Board of Secondary Education">Central Board of Secondary Education</option>
+<option value="Central Board of Education, Ajmer, Delhi">Central Board of Education, Ajmer, Delhi</option>
+<option value="Chhattisgarh Board of Secondary Education">Chhattisgarh Board of Secondary Education</option>
+<option value="Council for the Indian School Certificate Examinations">Council for the Indian School Certificate Examinations</option>
+<option value="Grameen Mukt Vidhyalayi Shiksha Sansthan">Grameen Mukt Vidhyalayi Shiksha Sansthan</option>
+<option value="Goa Board of Secondary &amp; Higher Secondary Education">Goa Board of Secondary &amp; Higher Secondary Education</option>
+<option value="Gujarat Secondary Education Board">Gujarat Secondary Education Board</option>
+<option value="Haryana Board of School Education">Haryana Board of School Education</option>
+<option value="Himachal Pradesh Board of School Education">Himachal Pradesh Board of School Education</option>
+<option value="Himachal Pradesh State Open School">Himachal Pradesh State Open School</option>
+<option value="Jammu and Kashmir State Board of School Education">Jammu and Kashmir State Board of School Education</option>
+<option value="Jammu and Kashmir State Open School">Jammu and Kashmir State Open School</option>
+<option value="Jharkhand Academic Council">Jharkhand Academic Council</option>
+<option value="Karnataka Secondary Education Examination Board">Karnataka Secondary Education Examination Board</option>
+<option value="Kerala Higher Secondary Examination Board">Kerala Higher Secondary Examination Board</option>
+<option value="Kerala State Open School">Kerala State Open School</option>
+<option value="Board of Secondary Education, Madhya Pradesh">Board of Secondary Education, Madhya Pradesh</option>
+<option value="Madhya Pradesh State Open School">Madhya Pradesh State Open School</option>
+ <option value="Maharashtra State Board of Secondary and Higher Secondary Education">Maharashtra State Board of Secondary and Higher Secondary Education</option>
+<option value="Meghalaya Board of School Education">Meghalaya Board of School Education</option>
+<option value="Mizoram Board of School Education">Mizoram Board of School Education</option>
+<option value="Nagaland Board of School Education">Nagaland Board of School Education</option>
+<option value="National Institute of Open Schooling">National Institute of Open Schooling</option>
+<option value="Odisha Board of Secondary Education">Odisha Board of Secondary Education</option>
+<option value="Odisha Council of Higher Secondary Education">Odisha Council of Higher Secondary Education</option>
+<option value="Punjab School Education Board">Punjab School Education Board</option>
+<option value="Board of Secondary Education, Rajasthan">Board of Secondary Education, Rajasthan</option>
+<option value="Rajasthan State Open School">Rajasthan State Open School</option>
+<option value="Tamil Nadu Board of Secondary Education">Tamil Nadu Board of Secondary Education</option>
+<option value="Telangana Board of Intermediate Education">Telangana Board of Intermediate Education</option>
+<option value="Telangana Board of Secondary Education">Telangana Board of Secondary Education</option>
+<option value="Tripura Board of Secondary Education">Tripura Board of Secondary Education</option>
+<option value="Board of High School and Intermediate Education Uttar Pradesh">Board of High School and Intermediate Education Uttar Pradesh</option>
+<option value="Uttarakhand Board of School Education">Uttarakhand Board of School Education</option>
+<option value="West Bengal Board of Madrasah Education">West Bengal Board of Madrasah Education</option>
+<option value="West Bengal Board of Primary Education">West Bengal Board of Primary Education</option>
+<option value="West Bengal Board of Secondary Education">West Bengal Board of Secondary Education</option>
+<option value="West Bengal Council of Higher Secondary Education">West Bengal Council of Higher Secondary Education</option>
+<option value="West Bengal Council of Rabindra Open Schooling">West Bengal Council of Rabindra Open Schooling</option>
                     </select>
                 </div>
             </div>
                 <div class="row">
                 <div class="form-group col-lg-6 col-md-6">
                     <label class="col-form-label">Year Of Passing</label>
-                    <input maxlength="4" type="text" required="required"
+                    <input maxlength="4" type="text" name="yearofpassing" required="required"
                     class="form-control" placeholder="Enter Year Of Passing">
                 </div>
                 <div class="form-group col-lg-6 col-md-6">
                     <label class="col-form-label">Percentage/CGPA</label>
-                    <input maxlength="4" type="text" required="required"
+                    <input maxlength="4" type="text"  name="percentage" required="required"
                     class="form-control" placeholder="Enter Percentage/CGPA">
                 </div>
             </div>
@@ -237,73 +237,73 @@ a{
                 <div class="row" style="margin-top:15px;">
                 <div class="form-group col-lg-6 col-md-6">
                     <label class="col-form-label">School/Institution</label>
-                    <input maxlength="200" type="text" required="required"
+                    <input maxlength="200" type="text" required="required" name="institution" 
                     class="form-control" placeholder="Enter School/Institution Name">
                 </div>
                 <div class="form-group col-lg-6 col-md-6">
                     <label class="col-form-label">Board</label>
-                    <select class="form-control">
-                        <option>Select</option>
-                        <option>Andhra Pradesh Board of Secondary Education</option>
-                        <option>Andhra Pradesh Board of Intermediate Education</option>
-                        <option>Andhra Pradesh Open School Society</option>
-                        <option>Board of Higher Secondary Education Delhi</option>
-                        <option>Assam Higher Secondary Education Council</option>
-                        <option>Assam State Open School</option>
-                        <option>Bihar Board of Open Schooling &amp; Examination</option>
-                        <option>Bihar Sanskrit Shiksha Board</option>
-                        <option>Bihar School Examination Board</option>
-                        <option>Central Board of Secondary Education</option>
-                        <option>Central Board of Education, Ajmer, Delhi</option>
-                        <option>Chhattisgarh Board of Secondary Education</option>
-                        <option>Council for the Indian School Certificate Examinations</option>
-                        <option>Grameen Mukt Vidhyalayi Shiksha Sansthan</option>
-                        <option>Goa Board of Secondary &amp; Higher Secondary Education</option>
-                        <option>Gujarat Secondary Education Board</option>
-                        <option>Haryana Board of School Education</option>
-                        <option>Himachal Pradesh Board of School Education</option>
-                        <option>Himachal Pradesh State Open School</option>
-                        <option>Jammu and Kashmir State Board of School Education</option>
-                        <option>Jammu and Kashmir State Open School</option>
-                        <option>Jharkhand Academic Council</option>
-                        <option>Karnataka Secondary Education Examination Board</option>
-                        <option>Kerala Higher Secondary Examination Board</option>
-                        <option>Kerala State Open School</option>
-                        <option>Board of Secondary Education, Madhya Pradesh</option>
-                        <option>Madhya Pradesh State Open School</option>
-                        <option>Maharashtra State Board of Secondary and Higher Secondary Education</option>
-                        <option>Meghalaya Board of School Education</option>
-                        <option>Mizoram Board of School Education</option>
-                        <option>Nagaland Board of School Education</option>
-                        <option>National Institute of Open Schooling</option>
-                        <option>Odisha Board of Secondary Education</option>
-                        <option>Odisha Council of Higher Secondary Education</option>
-                        <option>Punjab School Education Board</option>
-                        <option>Board of Secondary Education, Rajasthan</option>
-                        <option>Rajasthan State Open School</option>
-                        <option>Tamil Nadu Board of Secondary Education</option>
-                        <option>Telangana Board of Intermediate Education</option>
-                        <option>Telangana Board of Secondary Education</option>
-                        <option>Tripura Board of Secondary Education</option>
-                        <option>Board of High School and Intermediate Education Uttar Pradesh</option>
-                        <option>Uttarakhand Board of School Education</option>
-                        <option>West Bengal Board of Madrasah Education</option>
-                        <option>West Bengal Board of Primary Education</option>
-                        <option>West Bengal Board of Secondary Education</option>
-                        <option>West Bengal Council of Higher Secondary Education</option>
-                        <option>West Bengal Council of Rabindra Open Schooling</option>
+                    <select class="form-control" name="12board">
+                         <option value="">Select</option>
+<option value="Andhra Pradesh Board of Secondary Education">Andhra Pradesh Board of Secondary Education</option>
+<option value="Andhra Pradesh Board of Intermediate Education">Andhra Pradesh Board of Intermediate Education</option>
+<option value="Andhra Pradesh Open School Society">Andhra Pradesh Open School Society</option>
+<option value="Board of Higher Secondary Education Delhi">Board of Higher Secondary Education Delhi</option>
+<option value="Assam Higher Secondary Education Council">Assam Higher Secondary Education Council</option>
+<option value="Assam State Open School">Assam State Open School</option>
+<option value="ihar Board of Open Schooling &amp; Examination">Bihar Board of Open Schooling &amp; Examination</option>
+<option value="Bihar Sanskrit Shiksha Board">Bihar Sanskrit Shiksha Board</option>
+<option value="Bihar School Examination Board">Bihar School Examination Board</option>
+<option value="Central Board of Secondary Education">Central Board of Secondary Education</option>
+<option value="Central Board of Education, Ajmer, Delhi">Central Board of Education, Ajmer, Delhi</option>
+<option value="Chhattisgarh Board of Secondary Education">Chhattisgarh Board of Secondary Education</option>
+<option value="Council for the Indian School Certificate Examinations">Council for the Indian School Certificate Examinations</option>
+<option value="Grameen Mukt Vidhyalayi Shiksha Sansthan">Grameen Mukt Vidhyalayi Shiksha Sansthan</option>
+<option value="Goa Board of Secondary &amp; Higher Secondary Education">Goa Board of Secondary &amp; Higher Secondary Education</option>
+<option value="Gujarat Secondary Education Board">Gujarat Secondary Education Board</option>
+<option value="Haryana Board of School Education">Haryana Board of School Education</option>
+<option value="Himachal Pradesh Board of School Education">Himachal Pradesh Board of School Education</option>
+<option value="Himachal Pradesh State Open School">Himachal Pradesh State Open School</option>
+<option value="Jammu and Kashmir State Board of School Education">Jammu and Kashmir State Board of School Education</option>
+<option value="Jammu and Kashmir State Open School">Jammu and Kashmir State Open School</option>
+<option value="Jharkhand Academic Council">Jharkhand Academic Council</option>
+<option value="Karnataka Secondary Education Examination Board">Karnataka Secondary Education Examination Board</option>
+<option value="Kerala Higher Secondary Examination Board">Kerala Higher Secondary Examination Board</option>
+<option value="Kerala State Open School">Kerala State Open School</option>
+<option value="Board of Secondary Education, Madhya Pradesh">Board of Secondary Education, Madhya Pradesh</option>
+<option value="Madhya Pradesh State Open School">Madhya Pradesh State Open School</option>
+ <option value="Maharashtra State Board of Secondary and Higher Secondary Education">Maharashtra State Board of Secondary and Higher Secondary Education</option>
+<option value="Meghalaya Board of School Education">Meghalaya Board of School Education</option>
+<option value="Mizoram Board of School Education">Mizoram Board of School Education</option>
+<option value="Nagaland Board of School Education">Nagaland Board of School Education</option>
+<option value="National Institute of Open Schooling">National Institute of Open Schooling</option>
+<option value="Odisha Board of Secondary Education">Odisha Board of Secondary Education</option>
+<option value="Odisha Council of Higher Secondary Education">Odisha Council of Higher Secondary Education</option>
+<option value="Punjab School Education Board">Punjab School Education Board</option>
+<option value="Board of Secondary Education, Rajasthan">Board of Secondary Education, Rajasthan</option>
+<option value="Rajasthan State Open School">Rajasthan State Open School</option>
+<option value="Tamil Nadu Board of Secondary Education">Tamil Nadu Board of Secondary Education</option>
+<option value="Telangana Board of Intermediate Education">Telangana Board of Intermediate Education</option>
+<option value="Telangana Board of Secondary Education">Telangana Board of Secondary Education</option>
+<option value="Tripura Board of Secondary Education">Tripura Board of Secondary Education</option>
+<option value="Board of High School and Intermediate Education Uttar Pradesh">Board of High School and Intermediate Education Uttar Pradesh</option>
+<option value="Uttarakhand Board of School Education">Uttarakhand Board of School Education</option>
+<option value="West Bengal Board of Madrasah Education">West Bengal Board of Madrasah Education</option>
+<option value="West Bengal Board of Primary Education">West Bengal Board of Primary Education</option>
+<option value="West Bengal Board of Secondary Education">West Bengal Board of Secondary Education</option>
+<option value="West Bengal Council of Higher Secondary Education">West Bengal Council of Higher Secondary Education</option>
+<option value="West Bengal Council of Rabindra Open Schooling">West Bengal Council of Rabindra Open Schooling</option>
                     </select>
                 </div>
             </div>
                 <div class="row">
                 <div class="form-group col-lg-6 col-md-6">
                     <label class="col-form-label">Year Of Passing</label>
-                    <input maxlength="4" type="text" required="required"
+                    <input maxlength="4" type="text" required="required" name="12yop" 
                     class="form-control" placeholder="Enter Year Of Passing">
                 </div>
                 <div class="form-group col-lg-6 col-md-6">
                     <label class="col-form-label">Percentage/CGPA</label>
-                    <input maxlength="4" type="text" required="required"
+                    <input maxlength="4" type="text" required="required" name="12percentage" 
                     class="form-control" placeholder="Enter Percentage/CGPA">
                 </div>
             </div>
@@ -313,50 +313,50 @@ a{
                  <div class="row">
                 <div class="form-group col-lg-6 col-md-6">
                     <label class="col-form-label">Institution</label>
-                    <input maxlength="100" type="text" required="required"
+                    <input maxlength="100" type="text" required="required" name="under_institution" 
                     class="form-control" placeholder="Enter Institute Name">
                 </div>
                 <div class="form-group col-lg-6 col-md-6">
                     <label class="col-form-label">University</label>
-                    <input maxlength="100" type="text" required="required"
+                    <input maxlength="100" type="text" required="required" name="under_university" 
                     class="form-control" placeholder="Enter University Name">
                 </div>
                 <div class="form-group col-lg-6 col-md-6">
                     <label class="col-form-label">Course</label>
-                    <input maxlength="200" type="text" required="required" class="form-control"
+                    <input maxlength="200" type="text" required="required" class="form-control" name="under_course" 
                     placeholder="Enter Course">
                 </div>
                 <div class="form-group col-lg-6 col-md-6">
                     <label class="col-form-label">Department</label>
-                    <select class="form-control">
-                        <option>Select</option>
-                        <option>Civil Engineering</option>
-                        <option>Mechanical Enginnering</option>
-                        <option>Automobile Engineering</option>
-                        <option>Aerospace Engineering</option>
-                        <option>Mechatronics</option>
-                        <option>Electronics And Communication</option>
-                        <option>Electrical And Electronics</option>
-                        <option>Electronics And Instrumentation</option>
-                        <option>Computer Science Engineering</option>
-                        <option>Information Technology</option>
-                        <option>Software Engineering</option>
-                        <option>Chemical Engineering</option>
-                        <option>Biotechnology</option>
-                        <option>Genetic Engineering</option>
-                        <option>Biomedical Engineering</option>
-                        <option>Food Process Engineering</option>
-                        <option>Nanotechnology</option>
+                    <select class="form-control" name="under_department">
+                        <option value="">Select</option>
+                        <option value="Civil Engineering">Civil Engineering</option>
+                        <option value="Mechanical Enginnering">Mechanical Enginnering</option>
+                        <option value="Automobile Engineering">Automobile Engineering</option>
+                        <option value="Aerospace Engineering">Aerospace Engineering</option>
+                        <option value="Mechatronics">Mechatronics</option>
+                        <option value="Electronics And Communication">Electronics And Communication</option>
+                        <option value="Electrical And Electronics">Electrical And Electronics</option>
+                        <option value="Electronics And Instrumentation">Electronics And Instrumentation</option>
+                        <option value="Computer Science Engineering">Computer Science Engineering</option>
+                        <option value="Information Technology">Information Technology</option>
+                        <option value="Software Engineering">Software Engineering</option>
+                        <option value="Chemical Engineering">Chemical Engineering</option>
+                        <option value="Biotechnology">Biotechnology</option>
+                        <option value="Genetic Engineering">Genetic Engineering</option>
+                        <option value="Biomedical Engineering">Biomedical Engineering</option>
+                        <option value="Food Process Engineering">Food Process Engineering</option>
+                        <option value="Nanotechnology">Nanotechnology</option>
                     </select>
                 </div>
                 <div class="form-group col-lg-6 col-md-6">
                     <label class="col-form-label">Year Of Passing</label>
-                    <input maxlength="4" type="text" required="required"
+                    <input maxlength="4" type="text" required="required" name="under_yop" 
                     class="form-control" placeholder="Enter Year Of Passing">
                 </div>
                 <div class="form-group col-lg-6 col-md-6">
                     <label class="col-form-label">Percentage/CGPA</label>
-                    <input maxlength="200" type="text" required="required"
+                    <input maxlength="200" type="text" required="required" name="under_percentage" 
                     class="form-control" placeholder="Enter Percentage/CGPA">
                 </div>
             </div>
@@ -375,55 +375,55 @@ a{
                 <div class="row" style="margin-top:15px;">
                 <div class="form-group col-lg-6 col-md-6">
                     <label class="col-form-label">Company Name</label>
-                    <input maxlength="100" type="text" required="required"
+                    <input maxlength="100" type="text" required="required" name="company_name" 
                     class="form-control" placeholder="Enter Company Name">
                 </div>
                 <div class="form-group col-lg-6 col-md-6">
                     <label class="col-form-label">Job Title</label>
-                    <input maxlength="20" type="text" required="required"
+                    <input maxlength="20" type="text" required="required" name="jobtitle" 
                     class="form-control" placeholder="Enter Job Title">
                 </div>
             </div>
                 <div class="row">
                 <div class="form-group col-lg-6 col-md-6">
                     <label class="col-form-label">Location</label>
-                    <input maxlength="20" type="text" required="required"
+                    <input maxlength="20" type="text" required="required" name="location" 
                     class="form-control" placeholder="Enter Location">
                 </div>
                 <div class="form-group col-lg-6 col-md-6">
                     <label class="col-form-label">Position Type</label>
-                    <select class="form-control">
-                        <option>Select</option>
-                        <option>Full Time</option>
-                        <option>Internship</option>
-                        <option>Volunteering Experience</option>
-                        <option>Others</option>
+                    <select class="form-control" name="positiontype">
+                        <option value="">Select</option>
+                        <option value="Full Time">Full Time</option>
+                        <option value="Internship">Internship</option>
+                        <option value="Volunteering Experience">Volunteering Experience</option>
+                        <option value="Others">Others</option>
                     </select>
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col-lg-6 col-md-6">
                     <label class="col-form-label">Job Sector</label>
-                    <select class="form-control">
-                        <option>Select</option>
-                        <option>Analytics</option>
-                        <option>Consulting</option>
-                        <option>Computer Science-Software-IT</option>
-                        <option>E-commerce</option>
-                        <option>Education</option>
-                        <option>Engineering And Technology</option>
-                        <option>Finance</option>
-                        <option>FMCG</option>
-                        <option>Healthcare</option>
-                        <option>Media/Entertainment</option>
-                        <option>Research And Development</option>
-                        <option>Telecom</option>
-                        <option>Others</option>
+                    <select class="form-control" name="jobsector">
+                        <option value="">Select</option>
+                        <option value="Analytics">Analytics</option>
+                        <option value="Consulting">Consulting</option>
+                        <option value="Computer Science-Software-IT">Computer Science-Software-IT</option>
+                        <option value="E-commerce">E-commerce</option>
+                        <option value="Education">Education</option>
+                        <option value="Engineering And Technology">Engineering And Technology</option>
+                        <option value="Finance">Finance</option>
+                        <option value="FMCG">FMCG</option>
+                        <option value="Healthcare">Healthcare</option>
+                        <option value="Media/Entertainment">Media/Entertainment</option>
+                        <option value="Research And Development">Research And Development</option>
+                        <option value="Telecom">Telecom</option>
+                        <option value="Others">Others</option>
                     </select>
                 </div>
                 <div class="form-group col-lg-6 col-md-6">
                     <label class="col-form-label">Details</label>
-                    <input maxlength="200" type="text" required="required"
+                    <input maxlength="200" type="text" required="required" name="details" 
                     class="form-control" placeholder="Enter Job Details">
                 </div>
             </div>
@@ -433,17 +433,17 @@ a{
                 <div class="row">
                 <div class="form-group col-lg-6 col-md-6">
                     <label class="col-form-label">Project Title</label>
-                    <input maxlength="100" type="text" required="required"
+                    <input maxlength="100" type="text" required="required" name="projecttitle" 
                     class="form-control" placeholder="Enter Project Title">
                 </div>
                 <div class="form-group col-lg-6 col-md-6">
                     <label class="col-form-label">Project Link</label>
-                    <input maxlength="200" type="url" required="required"
+                    <input maxlength="200" type="url" required="required" name="projectlink" 
                     class="form-control" placeholder="Enter Project Link">
                 </div>
                 <div class="form-group col-lg-12">
                     <label class="col-form-label">Project Description</label>
-                    <input maxlength="200" type="text" required="required"
+                    <input maxlength="200" type="text" required="required" name="projectdescription" 
                     class="form-control" placeholder="Enter Project Description">
                 </div>
             </div>
@@ -461,17 +461,17 @@ a{
                 <div class="row">
                 <div class="form-group col-lg-6 col-md-6">
                     <label class="col-form-label">Skills</label>
-                    <input maxlength="200" type="text" required="required" class="form-control"
+                    <input maxlength="200" type="text"  name="skills" required="required" class="form-control"
                     placeholder="Enter Technical Skills">
                 </div>
                 <div class="form-group col-lg-6 col-md-6">
                     <label class="col-form-label">Proficiency</label>
-                    <select class="form-control">
-                        <option>Select</option>
-                        <option>Beginner</option>
-                        <option>Intermediate</option>
-                        <option>Advance</option>
-                        <option>Professional</option>
+                    <select class="form-control" name="proficiency">
+                        <option value="">Select</option>
+                        <option value="Beginner">Beginner</option>
+                        <option value="Intermediate">Intermediate</option>
+                        <option value="Advance">Advance</option>
+                        <option value="Professional">Professional</option>
                     </select>
                 </div>
             </div>
@@ -485,28 +485,28 @@ a{
                 <div class="row">
                 <div class="form-group col-lg-6 col-md-6">
                     <label class="col-form-label">Skills</label>
-                    <select class="form-control">
-                        <option>Select</option>
-                        <option>Communication</option>
-                        <option>Ability to Work Under Pressure</option>
-                        <option>Decision Making</option>
-                        <option>Time Management</option>
-                        <option>Self-motivation</option>
-                        <option>Conflict Resolution</option>
-                        <option>Leadership</option>
-                        <option>Adaptability</option>
-                        <option>Teamwork</option>
-                        <option>Creativity</option>
+                    <select class="form-control" name="personalskills">
+                        <option value="">Select</option>
+                        <option value="Communication">Communication</option>
+                        <option value="Ability to Work Under Pressure">Ability to Work Under Pressure</option>
+                        <option value="Decision Making">Decision Making</option>
+                        <option value="Time Management">Time Management</option>
+                        <option value="Self-motivation">Self-motivation</option>
+                        <option value="Conflict Resolution">Conflict Resolution</option>
+                        <option value="Leadership">Leadership</option>
+                        <option value="Adaptability">Adaptability</option>
+                        <option value="Teamwork">Teamwork</option>
+                        <option value="Creativity">Creativity</option>
                     </select>
                 </div>
                 <div class="form-group col-lg-6 col-md-6">
                     <label class="col-form-label">Proficiency</label>
-                    <select class="form-control">
-                        <option>Select</option>
-                        <option>Beginner</option>
-                        <option>Intermediate</option>
-                        <option>Advance</option>
-                        <option>Professional</option>
+                    <select class="form-control" name="personalproficiency">
+                        <option value="">Select</option>
+                        <option value="Beginner">Beginner</option>
+                        <option value="Intermediate">Intermediate</option>
+                        <option value="Advance">Advance</option>
+                        <option value="Professional">Professional</option>
                     </select>
                 </div>
             </div>
@@ -529,7 +529,7 @@ a{
                 </div>
                 <div class="form-group col-lg-12">
                     <label class="col-form-label">Description</label>
-                    <input maxlength="200" type="text" required="required"
+                    <input maxlength="200" type="text" name="description" required="required"
                     class="form-control" placeholder="">
                 </div>
                 <button class="btn btn-primary nextBtn float-right" type="button">Next</button>
@@ -543,17 +543,17 @@ a{
             	<div class="row">
                 <div class="form-group col-lg-4 col-md-4">
                     <label class="col-form-label">Name</label>
-                    <input maxlength="100" type="text" required="required" class="form-control"
+                    <input maxlength="100" type="text" name="certification_name" required="required" class="form-control"
                     placeholder="Enter Certification Name">
                 </div>
                 <div class="form-group col-lg-4 col-md-4">
                     <label class="col-form-label">Issuing Authority</label>
-                    <input maxlength="100" type="text" required="required"
+                    <input maxlength="100" type="text" required="required" name="issuingauthority" 
                     class="form-control" placeholder="Eg:Microsoft,Google">
                 </div>
                 <div class="form-group col-lg-4 col-md-4">
                     <label class="col-form-label">Certification Url</label>
-                    <input maxlength="200" type="url" required="required"
+                    <input maxlength="200" type="url" required="required" name="certification_url" 
                     class="form-control" placeholder="https://www.abc.com">
                 </div>
             </div>
