@@ -40,7 +40,8 @@ Route::prefix('teacher')->group(function(){
     Route::get('/logout','Auth\teacherLoginController@logout')->name('teacher.logout');
     Route::get('teacherprofile','teacher\teacherprofileController@index')->name('teacherprofile');
     Route::post('teacherprofile','teacher\teacherprofileController@update_avatar')->name('teacherprofile');
-    Route::get('sendNotification','teacher\sendnotificationController@sendNotification')->name('sendNotification');
+    Route::get('sendNotification','teacher\sendnotificationController@sendNotification')->name('sendNotification')
+    ;
 });
 
 Route::prefix('student')->group(function(){
