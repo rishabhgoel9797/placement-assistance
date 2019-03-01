@@ -1,7 +1,7 @@
 @extends('layouts.institute_dashboard')
 @section('css')
 <style type="text/css">
-#deceased{
+/* #deceased{
     background-color:#FFF3F5;
   padding-top:10px;
   margin-bottom:10px;
@@ -13,7 +13,7 @@
 }
 .remove_field:hover{
   text-decoration:none;
-}
+} */
 </style>
 @endsection
 @section('content')
@@ -81,6 +81,14 @@
 </div>
 <div class="row" style="margin-top:20px;">
 <div class="col-md-12">
+        <div class="float-right">
+            <button class="btn btn-info disabled" style="cursor:not-allowed">Import<small>(Coming Soon)</small></button>
+            <button class="btn btn-success"  data-toggle="modal" data-target="#export">Export</button> 
+         </div>
+</div>
+</div>
+<div class="row" style="margin-top:20px;">
+<div class="col-md-12">
         <div class="card">
                 <div class="card-header">
                     Notifications Details
@@ -117,6 +125,38 @@
 </div>
 </div>
 </div>
+<div class="modal fade" id="export" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              Export Data Using Filters
+            </div>
+        <form action="{{route('exportNotifications')}}" method="post">
+            @csrf
+            {{-- {{route('editClass')}} --}}
+                <div class="modal-body ">
+                    <input type="hidden" name="export_id" id="export_id" value="">
+                      <div class="form-group">
+                      <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label for="class_status">Please Choose the Format</label><br>
+                                <input type="radio" value="xls" name="radio_export" required>XLS
+                                <input type="radio" style="margin-left:20px;" value="xlsx" name="radio_export">XLSX
+                               <input type="radio" style="margin-left:20px;" value="csv" name="radio_export">CSV
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary">Download</button>
+                </div>
+            </form> 
+          </div>
+        </div>
+      </div>
 @endsection
 
 @section('script')

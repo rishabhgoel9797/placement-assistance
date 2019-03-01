@@ -73,7 +73,7 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="pagesDropdown">
             <a class="dropdown-item" href="{{route('addCompany')}}"><i class="fa fa-user-plus"></i> Add Company</a>
-            <a class="dropdown-item" href="#"><i class="fa fa-list"></i> View Company</a>
+          <a class="dropdown-item" href="{{route('viewCompanies')}}"><i class="fa fa-list"></i> View Company</a>
           </div>
         </li>
         <li class="nav-item dropdown">
@@ -82,7 +82,7 @@
             <span>Teachers</span></a>
             <div class="dropdown-menu" aria-labelledby="pagesDropdown">
             <a class="dropdown-item" href="{{route('addTeacher')}}"><i class="fa fa-user-plus"></i> Add Teacher</a>
-            <a class="dropdown-item" href="#"><i class="fa fa-list"></i> View Teacher</a>
+            <a class="dropdown-item" href="{{route('viewTeachers')}}"><i class="fa fa-list"></i> View Teacher</a>
           </div>
         </li>
         <li class="nav-item dropdown">
@@ -91,9 +91,16 @@
             <span>Students</span></a>
             <div class="dropdown-menu" aria-labelledby="pagesDropdown">
             <a class="dropdown-item" href="{{route('addStudent')}}"><i class="fa fa-user-plus"></i> Add Student</a>
-            <a class="dropdown-item" href="#"><i class="fa fa-list"></i> View Student</a>
+            <a class="dropdown-item" href="{{route('viewStudents')}}"><i class="fa fa-list"></i> View Student</a>
           </div>
         </li>
+        <li class="nav-item ">
+            <span class="badge badge-danger float-right">New</span>
+            <a class="nav-link" href="{{route('suggested')}}">
+              <i class="fas fa-fw fa-bell"></i>
+              <span>Suggested</span>
+            </a>
+          </li>
       </ul>
 
 <div id="content-wrapper">

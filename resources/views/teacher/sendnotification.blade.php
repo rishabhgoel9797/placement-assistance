@@ -50,7 +50,7 @@
         Notification Panel
     </div>
     <div class="card-body">
-        <form action="{{route('addNotification')}}" method="post">
+        <form action="" method="post">
             @csrf
           
               <div class="row" style="margin-top:15px;">
@@ -78,7 +78,7 @@
                         Number of Notifications Sent
                     </div>
                     <div class="card-body" style="text-align:center">
-                        <h1 style="font-size:230px;">{{$ins_not}}</h1>                        
+                        <h1 style="font-size:230px;">3</h1>                        
                     </div>
                   </div>
     </div>
