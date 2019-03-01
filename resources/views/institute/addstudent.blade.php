@@ -56,15 +56,15 @@
     <div class="row" style="margin-top:15px;">
     <div class="form-group col-md-4 col-sm-4">
             <label for="name">Name </label>
-            <input type="text" class="form-control input-sm" name="name" id="Name" required="" placeholder="Enter Name">
+            <input class="form-control input-sm">
         </div>
         <div class="form-group col-md-4 col-sm-4">
                 <label for="email">Email</label>
-                <input type="email" class="form-control input-sm" name="email" id="email" required="" placeholder="Enter Email">
+                <input type="email" class="form-control input-sm">
             </div>
         <div class="form-group col-md-4 col-sm-4">
             <label for="unique_id">Registration No</label>
-            <input type="text" class="form-control input-sm" name="unique_id" id="Reg-no" required="" placeholder="Enter Registration number">
+            <input type="text" class="form-control input-sm">
         </div>
 </div>
 <div class="row">

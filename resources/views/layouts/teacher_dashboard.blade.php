@@ -8,7 +8,7 @@
     @yield('css')
 </head>
 
-<body id="page-top">
+<body>
 
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
@@ -97,10 +97,6 @@
   </div>
 
     </div>
-
-    <a class="scroll-to-top rounded" href="#page-top">
-      <i class="fas fa-angle-up"></i>
-    </a>
 
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
