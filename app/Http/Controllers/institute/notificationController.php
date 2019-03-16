@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Validator;
 use DB;
 use Auth;
+use Excel;
 
 class notificationController extends Controller
 {
@@ -33,5 +34,20 @@ class notificationController extends Controller
        // dd(Auth::user()->institute_id);
         DB::table('institute_notifications')->insert(['institute_id'=>Auth::user()->institute_id,'title'=>$form_data['title'],'description'=>$form_data['description']]);
         return redirect()->back()->with('message',$form_data['title'].' notification has been successfully added');
+    }
+    public function export(Request $request)
+    {
+        $form=$request->all();
+        $data=DB::table('institute_notifications')->select('title','description','created_at')
+        ->where('institute_id',Auth::user()->institute_id)->get()->toArray();
+
+        $data= json_decode( json_encode($data), true);
+        //dd($data);
+        return Excel::create('institute_notifications'.$form['radio_export'],function($excel) use ($data){
+            $excel->sheet('Institute Notifications',function($sheet) use ($data)
+            {
+                $sheet->fromArray($data);
+            });
+        })->download($form['radio_export']);
     }
 }

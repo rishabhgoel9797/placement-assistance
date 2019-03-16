@@ -22,7 +22,10 @@ class studentprofileController extends Controller
         $institute_id=Students::where('student_id',$student->student_id)->value('institute_id');
         $ins_pro=User::where('institute_id',$institute_id)->value('avatar');
     	$ins_not=DB::table('institute_notifications')->where('institute_id',$institute_id)->get();
-    	return view('student.profilestudent',array('user' => Auth::user(),'ins_not'=>$ins_not,'ins_pro'=>$ins_pro));
+        $student_ed_details=DB::table('education_details')->where('student_id',$student->student_id)->first();
+        // dd($student_ed_details);
+        return view('student.profilestudent',array('user' => Auth::user(),'ins_not'=>$ins_not,
+        'ins_pro'=>$ins_pro,'student_ed_details'=>$student_ed_details,'student'=>$student));
     }
 
     public function update_avatar(Request $request)
@@ -44,6 +47,9 @@ class studentprofileController extends Controller
        $institute_id=Students::where('student_id',$student->student_id)->value('institute_id');
        $ins_pro=User::where('institute_id',$institute_id)->value('avatar');
        $ins_not=DB::table('institute_notifications')->where('institute_id',$institute_id)->get();
-       return view('student.profilestudent',array('user' => Auth::user(),'ins_not'=>$ins_not,'ins_pro'=>$ins_pro));
+       $student_ed_details=DB::table('education_details')->where('student_id',$student->student_id)->first();
+       
+       return view('student.profilestudent',array('user' => Auth::user(),'ins_not'=>$ins_not,
+       'student'=>$student,'ins_pro'=>$ins_pro,'student_ed_details'=>$student_ed_details));
     }
 }

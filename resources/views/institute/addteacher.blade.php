@@ -44,6 +44,8 @@
                
             </div>
     </div>
+    <div class="row">
+    <div class="col-md-8">
 <div class="card" style="margin:20px;">
     <div class="card-header">
             <h3 class="card-title">Teacher Registration</h3>
@@ -109,4 +111,140 @@
 </div>
 </form>
 </div>
+</div>
+
+<div class="col-md-4">
+        <div class="card" style="height:310px;margin:20px;">
+                <div class="card-header">
+                    Number of Teachers Enrolled
+                </div>
+                <div class="card-body" style="text-align:center">
+                    <h1 style="font-size:120px; margin-top: 45px">{{$teachers_count}}</h1>                        
+                </div>
+              </div>
+</div>
+</div>
+<div class="row" style="margin-top:20px;">
+        <div class="col-md-12">
+                <div class="float-right">
+                    <button class="btn btn-info disabled" style="cursor:not-allowed">Import<small>(Coming Soon)</small></button>
+                    <button class="btn btn-success"  data-toggle="modal" data-target="#export">Export</button> 
+                 </div>
+        </div>
+     </div>
+<div class="row" style="margin-top: 20px;">
+    <div class="col-md-12 col-sm-12">
+            <div class="card" style="margin-left:35px;margin-right:35px;">
+                    <div class="card-header">
+                        Teachers enrolled for Placements DateWise
+                    </div>
+                    <div class="card-body">
+                <div id="container-teacher"></div>
+        </div>
+    </div>
+</div>
+</div>
+<div class="modal fade" id="export" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              Export Data Using Filters
+            </div>
+        <form action="{{route('exportTeachers')}}" method="post">
+            @csrf
+            {{-- {{route('editClass')}} --}}
+                <div class="modal-body ">
+                    <input type="hidden" name="export_id" id="export_id" value="">
+                      <div class="form-group">
+                      <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label for="class_status">Please Choose the Format</label><br>
+                                <input type="radio" value="xls" name="radio_export" required>XLS
+                                <input type="radio" style="margin-left:20px;" value="xlsx" name="radio_export">XLSX
+                               <input type="radio" style="margin-left:20px;" value="csv" name="radio_export">CSV
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary">Download</button>
+                </div>
+            </form> 
+          </div>
+        </div>
+      </div>
+@endsection
+
+@section('script')
+<script>
+    var dates={!!json_encode($datewise)!!};
+    var date_array=[];
+    var count_array=[];
+    for(var k in dates)
+    {
+        date_array.push(dates[k].created_date);
+        count_array.push(dates[k].total);
+    }
+Highcharts.chart('container-teacher', {
+    chart: {
+    type: 'column'
+  },
+  credits: {
+      enabled: false
+  },
+
+title: {
+  text: 'Number of Teachers Enrolled DateWise for placements'
+},
+
+
+yAxis: {
+  title: {
+    text: 'Number of Teachers'
+  }
+},
+legend: {
+  layout: 'horizontal',
+  align: 'center',
+  verticalAlign: 'bottom'
+},
+xAxis: {
+    title: {
+    text: 'Dates'
+  },
+    categories: date_array,
+    crosshair: true
+  },
+
+series: [{
+  name: 'Number of Teachers',
+  data: count_array
+}],
+exporting: {
+      buttons: {
+        contextButton: {
+          menuItems: Highcharts.getOptions().exporting.buttons.contextButton.menuItems.filter(item => item !== 'openInCloud')
+        }
+      }
+    },
+responsive: {
+  rules: [{
+    condition: {
+      maxWidth: 500
+    },
+    chartOptions: {
+      legend: {
+        layout: 'horizontal',
+        align: 'center',
+        verticalAlign: 'bottom'
+      }
+    }
+  }]
+}
+
+});
+</script>
 @endsection

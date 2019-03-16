@@ -5,6 +5,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
    <link href="{{asset('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('css/sb-admin.css')}}" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet">
     @yield('css')
 </head>
 
@@ -35,10 +37,10 @@
             @if(count($ins_not)>0)
             @foreach($ins_not as $i)
             <div class="row">
-              <div class="col-md-6 col-sm-6">
+              {{-- <div class="col-md-6 col-sm-6">
             <img src="/uploads/avatars/institute/{{$ins_pro}}" style="width:50px;height: 50px; border-radius: 50%;">
-              </div>
-              <div class="col-md-6 col-sm-6">
+              </div> --}}
+              <div class="col-md-12 col-sm-12">
             <a class="dropdown-item" href="#"><h5>{{$i->title}}</h5>{{$i->description}}</a>
               </div>
             </div>
@@ -67,13 +69,13 @@
 
       <ul class="sidebar navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link" href="{{route('teacher.companyDetails')}}" role="button">
             <i class="fas fa-fw fa-briefcase"></i>
             <span>Companies</span>
           </a>
         </li>
         <li class="nav-item ">
-          <a class="nav-link" href="#">
+          <a class="nav-link" href="{{route('sendNotification')}}">
             <i class="fas fa-fw fa-bell"></i>
             <span>Notification</span>
           </a>
@@ -123,6 +125,8 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <script src="{{asset('js/sb-admin.min.js')}}"></script>
 
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
 @yield('script')
 </body>
 </html>

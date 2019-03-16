@@ -50,14 +50,7 @@
     cursor: pointer;
 }
 .proile-rating{
-    font-size: 12px;
-    color: #818182;
     margin-top: 5%;
-}
-.proile-rating span{
-    color: #495057;
-    font-size: 15px;
-    font-weight: 600;
 }
 .profile-head .nav-tabs{
     margin-bottom:5%;
@@ -117,12 +110,12 @@
                     <div class="col-md-6">
                         <div class="profile-head">
                                     <h5>
-                                        Rishabh Goel
+                                        {{$student->name}}
                                     </h5>
                                     <h6>
-                                        Full Stack Engineer
+                                        STUDENT
                                     </h6>
-                                    <p class="proile-rating">RANKINGS : <span>8/10</span></p>
+                                    <h4 class="proile-rating">PROFILE</h4>
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 <li class="nav-item">
                                     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
@@ -160,7 +153,7 @@
                                                 <label>User Id</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>RA1511008010330</p>
+                                            <p>{{$student->unique_id}}</p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -168,7 +161,7 @@
                                                 <label>Name</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>Rishabh Goel</p>
+                                            <p>{{$student->name}}</p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -176,7 +169,7 @@
                                                 <label>Email</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>rishabhgoel9797@gmail.com</p>
+                                            <p>{{$student->email}}</p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -184,41 +177,41 @@
                                                 <label>Phone</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>9790713934</p>
+                                            <p>{{$student->phone}}</p>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label>Profession</label>
+                                                <label>Department</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>Web Developer and Designer</p>
+                                            <p>{{$student->department}}</p>
                                             </div>
                                         </div>
                             </div>
                             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label>Experience</label>
+                                                <label>10th %/CGPA</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>Intermediate</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Hourly Rate</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>Rs.500/hr</p>
+                                            <p>{{$student_ed_details->ten_perc}}</p>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label>Total Projects</label>
+                                                <label>12th %/CGPA</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>230</p>
+                                                <p>{{$student_ed_details->twelve_perc}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Graduation %/CGPA</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{$student_ed_details->graduate_perc}}</p>
                                             </div>
                                         </div>
                                         <div class="row">

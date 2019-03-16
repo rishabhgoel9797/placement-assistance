@@ -55,6 +55,33 @@ a{
 @endsection
 @section('content')
 
+<div class="row">
+    <div class="col-lg-12"><br>
+        @if(session()->has('message'))
+            <div class="alert alert-success">
+                {{ session()->get('message') }}
+            </div>
+        @endif
+        @if(session()->has('error'))
+            <div class="alert alert-danger">
+                {{ session()->get('error') }}
+            </div>
+        @endif
+        @if(count($errors)>0)
+        <div style="margin-top:20px;">
+        <div class="alert alert-danger">
+            <ul>
+            @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+            </ul>
+        </div>
+        </div>
+        @endif
+        
+    </div>
+</div>
+
     <div class="stepwizard">
         <div class="stepwizard-row setup-card">
             <div class="row">
@@ -85,39 +112,14 @@ a{
         </div>
         </div>
     </div>
-    <form role="form" method="post" action="" id="needs-validation" novalidate>
+<form role="form" method="post" action="{{route('addProfilePost')}}" id="needs-validation" novalidate>
     	@csrf
         <div class="card setup-content" id="step-1">
             <div class="card-header">
                  <h3 class="card-title">Basic Information</h3>
             </div>
             <div class="card-body">
-            	<div class="row" style="margin-top:15px;">
-                <div class="col-lg-6 col-md-6">
-                    <div class="form-group">
-                    <label class="col-form-label">Name</label>
-                    <input maxlength="100" type="text"  name="name" required class="form-control"
-                    placeholder="Enter Full Name">
-                </div>
-                </div>
-                <div class="form-group col-lg-6 col-md-6">
-                    <label class="col-form-label">Email</label>
-                    <input maxlength="100" type="email" name="email" required class="form-control"
-                    placeholder="Enter Email">
-                </div>
-                </div>
-            <div class="row">
-                <div class="form-group col-lg-6 col-md-6">
-                    <label class="col-form-label">Registration Number</label>
-                    <input maxlength="100" type="text" name="regno" required
-                    class="form-control" placeholder="Enter Registration Number">
-                </div>
-                <div class="form-group col-lg-6 col-md-6">
-                    <label class="col-form-label">Date Of Birth</label>
-                    <input type="date" name="dob" required class="form-control"
-                    placeholder="Enter DOB">
-                </div>
-            </div>
+            	
             <div class="row">
                 <div class="form-group col-lg-6 col-md-6">
                     <label class="col-form-label">Gender</label>
@@ -461,12 +463,12 @@ a{
                 <div class="row">
                 <div class="form-group col-lg-6 col-md-6">
                     <label class="col-form-label">Skills</label>
-                    <input maxlength="200" type="text"  name="skills" required="required" class="form-control"
+                    <input maxlength="200" type="text"  name="skills[]" required="required" class="form-control"
                     placeholder="Enter Technical Skills">
                 </div>
                 <div class="form-group col-lg-6 col-md-6">
                     <label class="col-form-label">Proficiency</label>
-                    <select class="form-control" name="proficiency">
+                    <select class="form-control" name="proficiency[]">
                         <option value="">Select</option>
                         <option value="Beginner">Beginner</option>
                         <option value="Intermediate">Intermediate</option>
@@ -485,7 +487,7 @@ a{
                 <div class="row">
                 <div class="form-group col-lg-6 col-md-6">
                     <label class="col-form-label">Skills</label>
-                    <select class="form-control" name="personalskills">
+                    <select class="form-control" name="personalskills[]" required>
                         <option value="">Select</option>
                         <option value="Communication">Communication</option>
                         <option value="Ability to Work Under Pressure">Ability to Work Under Pressure</option>
@@ -501,7 +503,7 @@ a{
                 </div>
                 <div class="form-group col-lg-6 col-md-6">
                     <label class="col-form-label">Proficiency</label>
-                    <select class="form-control" name="personalproficiency">
+                    <select class="form-control" name="personalproficiency[]" required>
                         <option value="">Select</option>
                         <option value="Beginner">Beginner</option>
                         <option value="Intermediate">Intermediate</option>
@@ -524,12 +526,12 @@ a{
             <div class="card-body">
                 <div class="form-group col-lg-12">
                     <label class="col-form-label">Category</label>
-                    <input maxlength="200" type="text" required="required"
+                    <input maxlength="200" name="extra_category" type="text" required="required"
                     class="form-control" placeholder="Eg:Singing,Dancing " data-role="tagsinput">
                 </div>
                 <div class="form-group col-lg-12">
                     <label class="col-form-label">Description</label>
-                    <input maxlength="200" type="text" name="description" required="required"
+                    <input maxlength="200" type="text" name="extra_description" required="required"
                     class="form-control" placeholder="">
                 </div>
                 <button class="btn btn-primary nextBtn float-right" type="button">Next</button>
@@ -543,17 +545,17 @@ a{
             	<div class="row">
                 <div class="form-group col-lg-4 col-md-4">
                     <label class="col-form-label">Name</label>
-                    <input maxlength="100" type="text" name="certification_name" required="required" class="form-control"
+                    <input maxlength="100" type="text" name="certification_name[]" required="required" class="form-control"
                     placeholder="Enter Certification Name">
                 </div>
                 <div class="form-group col-lg-4 col-md-4">
                     <label class="col-form-label">Issuing Authority</label>
-                    <input maxlength="100" type="text" required="required" name="issuingauthority" 
+                    <input maxlength="100" type="text" required="required" name="issuingauthority[]" 
                     class="form-control" placeholder="Eg:Microsoft,Google">
                 </div>
                 <div class="form-group col-lg-4 col-md-4">
                     <label class="col-form-label">Certification Url</label>
-                    <input maxlength="200" type="url" required="required" name="certification_url" 
+                    <input maxlength="200" type="url" required="required" name="certification_url[]" 
                     class="form-control" placeholder="https://www.abc.com">
                 </div>
             </div>
@@ -639,7 +641,7 @@ a{
         divtest.setAttribute("class", "form-group removeclassTech"+tech_skills);
         let rdiv = 'removeclass'+tech_skills;
        
-        divtest.innerHTML =' <div class="row"><div class="form-group col-lg-6 col-md-6"><label class="col-form-label">Skills</label><input maxlength="200" type="text" required="required" class="form-control"placeholder="Enter Technical Skills"></div><div class="form-group col-lg-6 col-md-6"><label class="col-form-label">Proficiency</label><select class="form-control"><option>Select</option><option>Beginner</option><option>Intermediate</option><option>Advance</option><option>Professional</option></select><div class="float-right"><div class="input-group-btn"><button class="btn btn-danger" type="button"  onclick="remove_tech_skills('+ tech_skills +')" style="margin-top:15px;"> Remove </button> </div></div></div></div>';
+        divtest.innerHTML =' <div class="row"><div class="form-group col-lg-6 col-md-6"><label class="col-form-label">Skills</label><input maxlength="200" type="text" required="required" class="form-control"placeholder="Enter Technical Skills" name="skills[]"></div><div class="form-group col-lg-6 col-md-6"><label class="col-form-label">Proficiency</label><select name="proficiency[]" class="form-control"><option>Select</option><option>Beginner</option><option>Intermediate</option><option>Advance</option><option>Professional</option></select><div class="float-right"><div class="input-group-btn"><button class="btn btn-danger" type="button"  onclick="remove_tech_skills('+ tech_skills +')" style="margin-top:15px;"> Remove </button> </div></div></div></div>';
         objTo.appendChild(divtest)
     }
     function remove_tech_skills(rid)
@@ -654,7 +656,7 @@ a{
         divtest.setAttribute("class", "form-group removeclassPers"+pers_skills);
         let rdiv = 'removeclass'+pers_skills;
        
-        divtest.innerHTML ='<div class="row"><div class="form-group col-lg-6 col-md-6"><label class="col-form-label">Skills</label><select class="form-control"><option>Select</option><option>Communication</option><option>Ability to Work Under Pressure</option><option>Decision Making</option><option>Time Management</option><option>Self-motivation</option><option>Conflict Resolution</option><option>Leadership</option><option>Adaptability</option><option>Teamwork</option><option>Creativity</option></select> </div><div class="form-group col-lg-6 col-md-6"><label class="col-form-label">Proficiency</label><select class="form-control"><option>Select</option><option>Beginner</option><option>Intermediate</option><option>Advance</option><option>Professional</option></select><div class="float-right"><div class="input-group-btn"><button class="btn btn-danger" type="button"  onclick="remove_pers_skills('+ pers_skills +')" style="margin-top:15px;"> Remove </button> </div></div></div></div>';
+        divtest.innerHTML ='<div class="row"><div class="form-group col-lg-6 col-md-6"><label class="col-form-label">Skills</label><select name="personalskills[]" class="form-control" required="required"><option>Select</option><option>Communication</option><option>Ability to Work Under Pressure</option><option>Decision Making</option><option>Time Management</option><option>Self-motivation</option><option>Conflict Resolution</option><option>Leadership</option><option>Adaptability</option><option>Teamwork</option><option>Creativity</option></select> </div><div class="form-group col-lg-6 col-md-6"><label class="col-form-label">Proficiency</label><select name="personalproficiency[]" class="form-control" required="required"><option>Select</option><option>Beginner</option><option>Intermediate</option><option>Advance</option><option>Professional</option></select><div class="float-right"><div class="input-group-btn"><button class="btn btn-danger" type="button"  onclick="remove_pers_skills('+ pers_skills +')" style="margin-top:15px;"> Remove </button> </div></div></div></div>';
         objTo.appendChild(divtest)
     }
     
@@ -670,7 +672,7 @@ a{
         divtest.setAttribute("class", "form-group removeclassCert"+cert);
         let rdiv = 'removeclass'+cert;
        
-        divtest.innerHTML ='<div class="row"><div class="form-group col-lg-4 col-md-4"><label class="col-form-label">Name</label><input maxlength="100" type="text" required="required" class="form-control"placeholder="Enter Certification Name"></div><div class="form-group col-lg-4 col-md-4"><label class="col-form-label">Issuing Authority</label><input maxlength="100" type="text" required="required"class="form-control" placeholder="Eg:Microsoft,Google"></div><div class="form-group col-lg-4 col-md-4"><label class="col-form-label">Certification Url</label><input maxlength="200" type="url" required="required"class="form-control" placeholder="https://www.abc.com"><div class="float-right"><div class="input-group-btn"><button class="btn btn-danger" type="button"  onclick="remove_certification('+ cert +')" style="margin-top:15px;"> Remove </button> </div></div></div></div>';
+        divtest.innerHTML ='<div class="row"><div class="form-group col-lg-4 col-md-4"><label class="col-form-label">Name</label><input maxlength="100" type="text" required="required" class="form-control"placeholder="Enter Certification Name" name="certification_name[]"></div><div class="form-group col-lg-4 col-md-4"><label class="col-form-label">Issuing Authority</label><input maxlength="100" name="issuingauthority[]" type="text" required="required"class="form-control" placeholder="Eg:Microsoft,Google"></div><div class="form-group col-lg-4 col-md-4"><label class="col-form-label">Certification Url</label><input maxlength="200" type="url" required="required"class="form-control" name="certification_url[]" placeholder="https://www.abc.com"><div class="float-right"><div class="input-group-btn"><button class="btn btn-danger" type="button"  onclick="remove_certification('+ cert +')" style="margin-top:15px;"> Remove </button> </div></div></div></div>';
         objTo.appendChild(divtest)
     }
     function remove_certification(rid)

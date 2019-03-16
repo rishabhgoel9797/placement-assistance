@@ -18,9 +18,11 @@
 #container-company {
   height: 400px;
 }
+.bootstrap-tagsinput {
+    padding: 8px 6px;
+}
 </style>
-
-
+ <link href="{{asset("css/bootstrap-tagsinput.css")}}" rel="stylesheet">
 @endsection
 @section('content')
 <!-- <!doctype html>
@@ -94,7 +96,7 @@
 </div>
 <div class="row">
 
-    <div class="form-group col-md-12 col-sm-12">
+    <div class="form-group col-md-6 col-sm-6">
             <label for="Category">Category</label>
             <br>
             <select class="form-control" name="category">
@@ -104,6 +106,10 @@
              <option value="SuperDream">Super-Dream</option>
              
             </select>
+        </div>
+        <div class="form-group col-md-6 col-sm-6">
+            <label for="departments">Departments</label>
+            <input class="form-control" name="department" data-role="tagsinput" placeholder="Add Departments">
         </div>
         <div class="form-group col-md-12 col-sm-12">
         <label>Eligibility Criteria</label>
@@ -182,9 +188,11 @@
                         Companies Visited DateWise
                     </div>
                     <div class="card-body">
-<div id="container-company"></div>
-    </div></div>
-    </div></div>
+                <div id="container-company"></div>
+        </div>
+    </div>
+</div>
+</div>
 </body>
 @endsection
 @section('script')
@@ -215,6 +223,7 @@
  </script>
  
  </script>
+ <script src="{{asset("js/bootstrap-tagsinput.min.js")}}"></script>
  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPAXdx0-ZoxDaa8pGK5YIP6TcuEDwwYWA&libraries=places"></script>
  <script>
     function init() {
@@ -248,7 +257,7 @@ title: {
 
 yAxis: {
   title: {
-    text: 'Number of Employees'
+    text: 'Number of Companies'
   }
 },
 legend: {
@@ -292,14 +301,4 @@ responsive: {
 
 });
 </script>
-<script>
-    var dates={!!json_encode($datewise)!!};
-    var date_array=[];
-    var count_array=[];
-    for(var k in dates)
-    {
-        date_array.push(dates[k].created_date);
-        count_array.push(dates[k].total);
-    }
-    </script>
  @endsection

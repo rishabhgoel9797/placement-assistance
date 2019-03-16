@@ -68,6 +68,199 @@
             </div>
           </div>
 
+          <div class="row">
+              <div class="col-md-6 col-sm-6">
+                      <div class="card" style="margin-left:35px;margin-right:35px;">
+                              <div class="card-header">
+                                  Department Wise Students
+                              </div>
+                              <div class="card-body">
+                          <div id="container-deptStudents"></div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-6 col-sm-6">
+              <div class="card" style="margin-left:35px;margin-right:35px;">
+                      <div class="card-header">
+                          Department Wise Teachers
+                      </div>
+                      <div class="card-body">
+                  <div id="container-deptTeachers"></div>
+          </div>
+      </div>
+  </div>
+          </div>
+          <div class="row" style="margin-top:20px;">
+            <div class="col-md-12">
+                <div class="card" style="margin-left:35px;margin-right:35px;">
+                    <div class="card-header">
+                        Department Wise Companies Visited
+                    </div>
+                    <div class="card-body">
+                <div id="container-departments"></div>
+        </div>
+    </div>
+            </div>
+          </div>
 
+@endsection
+
+@section('script')
+<script>
+    var deptWiseStudents={!!json_encode($department_wise_students)!!};
+    console.log(deptWiseStudents);
+    Highcharts.chart('container-deptStudents', {
+  chart: {
+    plotBackgroundColor: null,
+    plotBorderWidth: null,
+    plotShadow: false,
+    type: 'pie'
+  },
+  credits: {
+      enabled: false
+  },
+  title: {
+    text: 'Number of Students Enrolled in placement Department Wise'
+  },
+  tooltip: {
+    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+  },
+  plotOptions: {
+    pie: {
+      allowPointSelect: true,
+      cursor: 'pointer',
+      dataLabels: {
+        enabled: true,
+        format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+        style: {
+          color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+        }
+      }
+    }
+  },
+  series: [{
+    name: 'Number Of Students',
+    colorByPoint: true,
+    data: deptWiseStudents
+  }],
+  
+exporting: {
+      buttons: {
+        contextButton: {
+          menuItems: Highcharts.getOptions().exporting.buttons.contextButton.menuItems.filter(item => item !== 'openInCloud')
+        }
+      }
+    }
+});
+</script>
+<script>
+    var deptWiseTeachers={!!json_encode($department_wise_teachers)!!};
+    Highcharts.chart('container-deptTeachers', {
+  chart: {
+    plotBackgroundColor: null,
+    plotBorderWidth: null,
+    plotShadow: false,
+    type: 'pie'
+  },
+  credits: {
+      enabled: false
+  },
+  title: {
+    text: 'Number of Teachers Enrolled in placement Department Wise'
+  },
+  tooltip: {
+    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+  },
+  plotOptions: {
+    pie: {
+      allowPointSelect: true,
+      cursor: 'pointer',
+      dataLabels: {
+        enabled: true,
+        format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+        style: {
+          color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+        }
+      }
+    }
+  },
+  series: [{
+    name: 'Number Of Teachers',
+    colorByPoint: true,
+    data: deptWiseTeachers
+  }],
+  
+exporting: {
+      buttons: {
+        contextButton: {
+          menuItems: Highcharts.getOptions().exporting.buttons.contextButton.menuItems.filter(item => item !== 'openInCloud')
+        }
+      }
+    }
+});
+</script>
+<script>
+    var departments={!!json_encode($deps_values)!!};
+   deptKeys=Object.keys(departments);
+   console.log(Object.values(departments));
+Highcharts.chart('container-departments', {
+    chart: {
+    type: 'line'
+  },
+  credits: {
+      enabled: false
+  },
+
+title: {
+  text: 'Number of Companies Visited Department Wise'
+},
+
+
+yAxis: {
+  title: {
+    text: 'Number of Companies'
+  }
+},
+legend: {
+  layout: 'horizontal',
+  align: 'center',
+  verticalAlign: 'bottom'
+},
+xAxis: {
+    title: {
+    text: 'Departments'
+  },
+    categories: Object.keys(departments),
+    crosshair: true
+  },
+
+series: [{
+  name: 'Number of Companies',
+  data: Object.values(departments)
+}],
+exporting: {
+      buttons: {
+        contextButton: {
+          menuItems: Highcharts.getOptions().exporting.buttons.contextButton.menuItems.filter(item => item !== 'openInCloud')
+        }
+      }
+    },
+responsive: {
+  rules: [{
+    condition: {
+      maxWidth: 500
+    },
+    chartOptions: {
+      legend: {
+        layout: 'horizontal',
+        align: 'center',
+        verticalAlign: 'bottom'
+      }
+    }
+  }]
+}
+
+});
+</script>
 
 @endsection

@@ -17,7 +17,7 @@ class Students extends Authenticatable
 
     protected $fillable = [
         'student_id','teacher_id','institute_id','name', 'email', 'password','unique_id','phone','program','department','year','remember_token',
-    ];
+        'created_date'];
 
     /**
      * The attributes that should be hidden for arrays.

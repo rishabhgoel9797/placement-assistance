@@ -89,8 +89,11 @@
             <span>Profile</span>
           </a>
           <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+            @if($student_ed_details!=null)
+            <a class="dropdown-item" href="#"><i class="fa fa-edit"></i> Update Profile</a>
+            @else
           <a class="dropdown-item" href="{{route('addProfile')}}"><i class="fa fa-plus"></i> Add Profile</a>
-          <a class="dropdown-item" href="#"><i class="fa fa-edit"></i> Update Profile</a>
+          @endif
           </div>
         </li>
         <li class="nav-item dropdown">
