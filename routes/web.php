@@ -52,4 +52,5 @@ Route::prefix('student')->group(function(){
     Route::get('addProfile','student\addprofileController@addprofile')->name('addProfile');
     Route::get('studentprofile','student\studentprofileController@index')->name('studentprofile');
     Route::post('studentprofile','student\studentprofileController@update_avatar')->name('studentprofile');
+    Route::get('studentPDF','student\studentPDFController@fun_pdf')->name('studentPDF');
 });

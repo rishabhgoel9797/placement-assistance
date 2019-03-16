@@ -247,7 +247,8 @@
                         </div>
                     </div>
                 </div>
-            </form>           
+            </form>    
+            <a href="{{route('studentPDF')}}">Download PDF</a>       
         </div>
 
 @endsection
