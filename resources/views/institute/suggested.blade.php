@@ -11,7 +11,7 @@
 @endsection
 @section('script')
 <script>
-    const ip="http://192.168.31.155:8080/";
+    const ip="http://192.168.43.230:8080/";
  $.ajax({
     type: "GET", //rest Type
     url: ip+"getCompanies",

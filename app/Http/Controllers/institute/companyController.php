@@ -77,9 +77,11 @@ class companyController extends Controller
         $institute_id=Auth::user()->institute_id;
         $companies=Company::where('institute_id',$institute_id)->where('status','upcoming')->get();
         $ongoing_companies=Company::where('institute_id',$institute_id)->where('status','ongoing')->get();
+        $completed_companies=Company::where('institute_id',$institute_id)->where('status','completed')->get();
         // dd($companies);
         return view('institute.viewCompanies',['companies'=>$companies,'count'=>$count,
-        'ongoing_companies'=>$ongoing_companies]);
+        'ongoing_companies'=>$ongoing_companies,
+        'completed_companies'=>$completed_companies]);
     }
     public function individualCompany($id) {
         $basic_info=Company::where('institute_id', Auth::user()->institute_id)
@@ -88,6 +90,16 @@ class companyController extends Controller
         ->where('company_id',$id)->get();
         // dd($basic_info);
         return view('institute.individualCompany',['basic_info'=>$basic_info,'company_rounds'=>$company_rounds]);
+    }
+    public function companystatus($status, $id) {
+        $changeStatus;
+        if($status == 'upcoming') {
+            $changeStatus = 'ongoing';
+        } else if($status == 'ongoing') {
+            $changeStatus = 'completed';
+        }
+        $company = Company::where('company_id', $id)->update(['status'=>$changeStatus]);
+        return redirect()->back()->with('message','company status has been successfully updated to '.$changeStatus);
     } 
 
 }

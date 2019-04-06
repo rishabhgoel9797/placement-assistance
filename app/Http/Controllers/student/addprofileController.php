@@ -20,9 +20,9 @@ class addprofileController extends Controller
         $institute_id=Students::where('student_id',$student->student_id)->value('institute_id');
         $ins_pro=User::where('institute_id',$institute_id)->value('avatar');
     	$ins_not=DB::table('institute_notifications')->where('institute_id',$institute_id)->get();
-    	return view('student.addprofile',['ins_not'=>$ins_not,'ins_pro'=>$ins_pro]);
+        $status=Students::where('student_id', $student->student_id)->value('status');
+        return view('student.addprofile',['ins_not'=>$ins_not,'ins_pro'=>$ins_pro,'status'=>$status]);
     }
-
     public function addProfile(Request $request)
     {
         $form=$request->all();
