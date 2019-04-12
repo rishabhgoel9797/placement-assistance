@@ -12,6 +12,6 @@ class Company extends Model
     protected $primaryKey = 'company_id';
 
     protected $fillable = [
-        'company_id','institute_id','company_name', 'job_role', 'company_description','job_description','location','ctc','department','category','tenth','twelth','graduate','status','created_date'
+        'company_id','institute_id','company_name', 'job_role', 'company_description','job_description','location','ctc','department','category','tenth','twelth','graduate','avatar','status','created_date'
     ];
 }

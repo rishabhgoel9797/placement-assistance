@@ -10,7 +10,7 @@
     <link href='https://fonts.googleapis.com/css?family=Quicksand:300,400,700' rel="stylesheet">
     <!-- <![endif]-->
 
-    <title>Material Design for Bootstrap</title>
+    <title>Email Invitation</title>
 
     <style type="text/css">
         body {
@@ -144,7 +144,7 @@
         <tr>
             <td>
                 <div style="overflow:hidden;display:none;font-size:1px;color:#ffffff;line-height:1px;font-family:Arial;maxheight:0px;max-width:0px;opacity:0;">
-                    Pre-header for the newsletter template
+                    User Invitation
                 </div>
             </td>
         </tr>
@@ -239,7 +239,7 @@
 
 
                                         <div style="line-height: 24px">
-                                            You have been successfully registered with Placera. It is an online Placement-Assistance for making your placement session interesting.Visit and start using it.
+                                            You have been successfully registered with Placera as a {{$user_type}}. It is an online Placement-Assistance for making your placement session interesting.Visit and start using it.
                                         </div>
                                     </td>
                                 </tr>

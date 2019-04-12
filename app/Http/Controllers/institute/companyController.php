@@ -8,6 +8,7 @@ use Validator;
 use App\Company;
 use DB;
 use Auth;
+use Image;
 
 class companyController extends Controller
 {
@@ -23,7 +24,7 @@ class companyController extends Controller
     public function addCompany(Request $request)
     {
         $form_data=$request->all();
-        //dd($form_data);
+        // dd($form_data);
         $validator = Validator::make($form_data, [
             'company_name'=> 'required|string|max:255',
             'job_role'=> 'required|string|max:255',
@@ -45,7 +46,12 @@ class companyController extends Controller
             $errors = $validator->errors();
             return redirect('/addCompany')->withErrors($validator)->withInput(); 
         }
-        
+        $filename;
+        if ($request->hasFile('avatar')) {
+            $avatar=$request->file('avatar');
+            $filename=time().'.'.$avatar->getClientOriginalExtension();
+            Image::make($avatar)->resize(300,300)->save(public_path('/uploads/avatars/institute/'.$filename));
+        }
         $company=Company::Create([
             'institute_id'=>Auth::user()->institute_id,
             'company_name'=>$form_data['company_name'],
@@ -59,9 +65,10 @@ class companyController extends Controller
             'tenth'=>$form_data['tenth'],
             'twelth'=>$form_data['twelth'],
             'graduate'=>$form_data['graduate'],
-            'created_date'=>date('Y-m-d')
-        ]);
+            'avatar'=>$filename,
+            'created_date'=>date('Y-m-d'),
 
+        ]);
         // dd($company);
         $round_number=$form_data['round_number'];
         $round_title=$form_data['round_title'];
@@ -77,9 +84,11 @@ class companyController extends Controller
         $institute_id=Auth::user()->institute_id;
         $companies=Company::where('institute_id',$institute_id)->where('status','upcoming')->get();
         $ongoing_companies=Company::where('institute_id',$institute_id)->where('status','ongoing')->get();
+        $completed_companies=Company::where('institute_id',$institute_id)->where('status','completed')->get();
         // dd($companies);
         return view('institute.viewCompanies',['companies'=>$companies,'count'=>$count,
-        'ongoing_companies'=>$ongoing_companies]);
+        'ongoing_companies'=>$ongoing_companies,
+        'completed_companies'=>$completed_companies]);
     }
     public function individualCompany($id) {
         $basic_info=Company::where('institute_id', Auth::user()->institute_id)
@@ -88,6 +97,16 @@ class companyController extends Controller
         ->where('company_id',$id)->get();
         // dd($basic_info);
         return view('institute.individualCompany',['basic_info'=>$basic_info,'company_rounds'=>$company_rounds]);
+    }
+    public function companystatus($status, $id) {
+        $changeStatus;
+        if($status == 'upcoming') {
+            $changeStatus = 'ongoing';
+        } else if($status == 'ongoing') {
+            $changeStatus = 'completed';
+        }
+        $company = Company::where('company_id', $id)->update(['status'=>$changeStatus]);
+        return redirect()->back()->with('message','company status has been successfully updated to '.$changeStatus);
     } 
 
 }

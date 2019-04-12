@@ -1,4 +1,4 @@
-@extends('layouts.institute_dashboard')
+@extends('layouts.teacher_dashboard')
 @section('css')
 @endsection
 
@@ -7,30 +7,28 @@
     <div class="col-md-12">
             <div class="card">
                     <div class="card-header">
-                       Enrolled Students Details
+                       Other Teachers involved in placement process of your Department
                     </div>
                     <div class="card-body">
                     <table id="example" class="table table-striped table-bordered" style="width:100%">
                     <thead>
                         <tr>
-                            <th>Serial Number</th>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>Unique Id</th>
+                            <th>Registration Number</th>
                             <th>Program</th>
                             <th>Department</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @if(count($students)>0)
-                        @foreach($students as $s)
+                        @if(count($otherTeachers)>0)
+                        @foreach($otherTeachers as $o)
                         <tr>
-                        <td>{{$count++}}</td>
-                        <td>{{$s->name}}</td>
-                        <td>{{$s->email}}</td>
-                        <td>{{$s->unique_id}}</td>
-                        <td>{{$s->program}}</td>
-                        <td>{{$s->department}}</td>
+                        <td>{{$o->name}}</td>
+                        <td>{{$o->email}}</td>
+                        <td>{{$o->unique_id}}</td>
+                        <td>{{$o->program}}</td>
+                        <td>{{$o->department}}</td>
                         </tr>
                         @endforeach
                         @endif

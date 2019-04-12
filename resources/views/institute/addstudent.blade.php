@@ -56,15 +56,15 @@
     <div class="row" style="margin-top:15px;">
     <div class="form-group col-md-4 col-sm-4">
             <label for="name">Name </label>
-            <input class="form-control input-sm">
+            <input class="form-control input-sm" name="name">
         </div>
         <div class="form-group col-md-4 col-sm-4">
                 <label for="email">Email</label>
-                <input type="email" class="form-control input-sm">
+                <input type="email" class="form-control input-sm" name="email">
             </div>
         <div class="form-group col-md-4 col-sm-4">
             <label for="unique_id">Registration No</label>
-            <input type="text" class="form-control input-sm">
+            <input type="text" class="form-control input-sm" name="unique_id">
         </div>
 </div>
 <div class="row">
@@ -148,8 +148,11 @@
 </div>
 <div class="row" style="margin-top:20px;">
         <div class="col-md-12">
-                <div class="float-right">
-                    <button class="btn btn-info disabled" style="cursor:not-allowed">Import<small>(Coming Soon)</small></button>
+          <div class="float-left">
+            <a class="btn btn-warning" href="{{asset('template/Students-Template.xlsx')}}">Download Students Import Template</a>
+        </div>    
+            <div class="float-right">
+                    <button class="btn btn-info" style="cursor:pointer" data-toggle="modal" data-target="#import">Import</button>
                     <button class="btn btn-success"  data-toggle="modal" data-target="#export">Export</button> 
                  </div>
         </div>
@@ -166,6 +169,27 @@
 </div>
 </div>
 </div>
+
+<div class="modal fade" id="import" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="myModalLabel">Import Students Excel</h4>
+        </div>
+        <form action="{{ route('importStudents') }}" class="form-horizontal" method="post" enctype="multipart/form-data">
+          @csrf
+            <div class="modal-body">
+                  <span id="lblError" style="color: red;"></span>
+                  <input type="file" name="file_student" id="file_student" required autofocus/>               
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <input type="submit" name="import_submit" class="btn btn-primary" value="Import" onclick="return ValidateExtension()"   >
+            </div>
+        </form> 
+      </div>
+    </div>
+  </div>
 
 <div class="modal fade" id="export" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
@@ -203,6 +227,21 @@
 @endsection
 
 @section('script')
+<script type="text/javascript">
+  function ValidateExtension() {
+      var allowedFiles = [".csv", ".xls", ".xlsx"];
+      var fileUpload = document.getElementById("import_file_teacher");
+      var lblError = document.getElementById("lblError");
+      var regex = new RegExp("([a-zA-Z0-9\s_\\.\-:])+(" + allowedFiles.join('|') + ")$");
+      if (!regex.test(fileUpload.value.toLowerCase())) {
+          lblError.innerHTML = "Please upload files having extensions: <b>" + allowedFiles.join(', ')  + "</b> only.";
+          return false;
+      }
+      lblError.innerHTML = "";
+      return true;
+  }
+</script>
+
 <script>
     var dates={!!json_encode($datewise)!!};
     console.log(dates);

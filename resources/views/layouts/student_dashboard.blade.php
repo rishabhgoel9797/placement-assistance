@@ -11,7 +11,8 @@
         font-weight: bold;
       }
    </style>
-
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css" rel="stylesheet">
+  <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet">
     @yield('css')
 </head>
 
@@ -19,7 +20,7 @@
 
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-      <a class="navbar-brand mr-1" href="#">Student</a>
+    <a class="navbar-brand mr-1" href="{{route('student.dashboard')}}">Student</a>
 
       <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
         <i class="fas fa-bars"></i>
@@ -56,11 +57,6 @@
             @endif
           </div>
         </li>
-        <li class="nav-item dropdown no-arrow mx-1">
-          <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-envelope fa-fw"></i>
-          </a>
-        </li>
         <li class="nav-item dropdown no-arrow">
           <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-user-circle fa-fw"></i>
@@ -77,7 +73,7 @@
 
       <ul class="sidebar navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link" href="{{route('companies')}}" role="button" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-fw fa-briefcase"></i>
             <span>Total Companies</span>
           </a>
@@ -89,34 +85,40 @@
             <span>Profile</span>
           </a>
           <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-            @if($student_ed_details!=null)
-            <a class="dropdown-item" href="#"><i class="fa fa-edit"></i> Update Profile</a>
+          
+            {{-- Facing issue with add/Update in if-else --}}
+            @if(count($student_ed_details)<1)
+            <a class="dropdown-item" href="{{route('addProfile')}}"><i class="fa fa-plus"></i> Add Profile</a>
             @else
-          <a class="dropdown-item" href="{{route('addProfile')}}"><i class="fa fa-plus"></i> Add Profile</a>
-          @endif
+            <a class="dropdown-item" href="#">Profile Added</a>
+            @endif
+      
           </div>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-fw fa-briefcase"></i>
-            <span>Eligibility</span>
-          </a>
-          <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="#"><i class="fa fa-check"></i> Eligible</a>
-          <a class="dropdown-item" href="#"><i class="fa fa-times"></i> Not Eligible</a>
-          </div>
+        @if($status != 'Pending'&&$status != 'Not Approve')
+        <li class="nav-item">
+            <a class="nav-link" href="{{route('eligibility')}}" role="button" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-fw fa-briefcase"></i>
+                <span>Eligibility</span>
+            </a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-fw fa-laptop-code"></i>
-            <span>Application Status</span>
-          </a>
-          <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="#"><i class="fa fa-check"></i> Applied</a>
-          <a class="dropdown-item" href="#"><i class="fa fa-times"></i> Rejected</a>
-          <a class="dropdown-item" href="#"><i class="fa fa-trophy"></i> Offered</a>
-          </div>
+        @endif
+        @if($status != 'Pending'&&$status != 'Not Approve')
+        <li class="nav-item">
+            <a class="nav-link" href="{{route('applications')}}" role="button" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-fw fa-briefcase"></i>
+                <span>Application Status</span>
+            </a>
         </li>
+        @endif
+        @if($status != 'Pending'&&$status != 'Not Approve')
+        <li class="nav-item">
+            <a class="nav-link" href="{{route('competitors')}}" role="button" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-fw fa-briefcase"></i>
+                <span>Competitors</span>
+            </a>
+        </li>
+        @endif
       </ul>
 
 <div id="content-wrapper">
@@ -150,6 +152,12 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/series-label.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
     <script src="{{asset('js/sb-admin.min.js')}}"></script>
     
 @yield('script')

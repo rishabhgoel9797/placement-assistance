@@ -23,6 +23,7 @@
                             <th>Tenth Eligibility</th>
                             <th>Twelth Eligibility</th>
                             <th>Graduate</th>
+                            <th>Number Of Students</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -39,6 +40,9 @@
                         <td>{{$c->tenth}}</td>
                         <td>{{$c->twelth}}</td>
                         <td>{{$c->graduate}}</td>
+                        <td>
+                        <a href="{{route('teacher.eligibleStudents',$c->company_id)}}" class="btn btn-info">Show Students</a>
+                        </td>
                         </tr>
                         @endforeach
                         @endif

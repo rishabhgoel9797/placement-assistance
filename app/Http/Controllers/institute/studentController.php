@@ -6,10 +6,14 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Students;
 use App\Teachers;
+use App\Mail\Invitation;
+use Mail;
 use Validator;
 use Auth;
 use DB;
 use Excel;
+use App\Jobs\sendEmailJob;
+use Carbon\Carbon;
 class studentController extends Controller
 {
     public function index()
@@ -31,14 +35,13 @@ class studentController extends Controller
         //dd($form_data);
         $validator = Validator::make($form_data, [
 			'name'=> 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:table_teachers',
+            'email' => 'required|string|email|max:255|unique:table_students',
             'unique_id'=> 'required|string|max:255|unique:table_students',
 			'program' => 'required|string|max:255',
 			'department'=> 'required|string|max:255',
             'year'=> 'required|string|max:255',
             'select_teacher'=> 'required|int',
         ]);
-      
         if($validator->fails()){
 
             $errors = $validator->errors();
@@ -59,7 +62,7 @@ class studentController extends Controller
             'created_date'=>date('Y-m-d')
         ]);
         // Add Student Mail
-        // Mail::to($form_data['email'])->send(new TeacherInvitation(Auth::user()->institute_name));
+        Mail::to($form_data['email'])->send(new Invitation(Auth::user()->institute_name, 'Student'));
         return redirect()->back()->with('message',$form_data['name'].' as a student has been successfully added');
     }
 
@@ -88,4 +91,43 @@ class studentController extends Controller
             });
         })->download($form['radio_export']);
     }
+    public function importStudents(Request $request)
+	{
+    try {
+        if($request->hasFile('file_student')){
+            $path = $request->file('file_student')->getRealPath();
+            $data = \Excel::load($path, function($reader) {
+            })->get();
+                $invitation_id_initial=DB::table('table_students')->orderBy('student_id','DESC')->take(1)->pluck('student_id');
+                $count_initial=$invitation_id_initial->count();
+                if($count_initial==0)
+                {
+                    $invitation_id_initial=1;
+                }
+                foreach ($data as $key => $value) {
+                    if (!isset($value->email)) {
+                        return redirect()->back()->with('error', "We don't support multiple sheets in excel file please upload according to our Template.");
+                    }
+                    if ( !empty($value->email)) {
+                        $t = bin2hex(openssl_random_pseudo_bytes(40)); 
+                        $insert = Students::updateOrCreate(['institute_id' => Auth::user()->institute_id,
+                         'teacher_id'=> $value->teacher_id, 'name'=> $value->name, 'email'=> $value->email,
+                         'unique_id'=>$value->reg_no, 'program'=>$value->program, 'department'=>$value->department,
+                         'year'=>$value->year, 'remember_token' => $t,'created_date'=>date('Y-m-d')]); 
+                    }else{
+                        continue;
+                    }				
+                }
+                $invitation_id_final=DB::table('table_students')->orderBy('student_id','DESC')->take(1)->pluck('student_id');
+                $emailJob = (new sendEmailJob($invitation_id_initial,$invitation_id_final,\Auth::user()->institute_name,'Student'));
+                dispatch($emailJob);
+                return redirect()->back()->with('message', 'Students Data successfully Inserted');			
+            }	
+            else{
+                return redirect()->back()->with('error', "File does not exists, please upload it.");
+            }		
+    } catch (Exception $e) {
+        return redirect()->back()->with('error', "Some unwanted error occurred.");
+        }
+	}
 }

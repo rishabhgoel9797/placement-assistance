@@ -1,4 +1,4 @@
-@extends('layouts.institute_dashboard')
+@extends('layouts.student_dashboard')
 @section('css')
 <style>
 .company_info {
@@ -27,9 +27,14 @@ border-radius: 10px;
         <div class="company_info">
                 <h2 style="margin-left:2%;">{{$basic_info->company_name}}</h2>
                 <hr>
-        <img src="/uploads/avatars/institute/{{$basic_info->avatar}}" class="img-responsive" style="height:200px;">
+                <img src="/uploads/avatars/institute/{{$basic_info->avatar}}" class="img-responsive" style="height:200px;">
         <span class="alert alert-success float-right">{{$basic_info->ctc}}</span>
         <span class="alert alert-danger float-right" style="margin-right:10px;">{{$basic_info->status}}</span>
+        @if($eligibility==1)
+        <a class="alert alert-warning float-right" style="margin-right:10px;">Already Applied</a>
+        @else 
+        <a class="alert alert-primary float-right" style="margin-right:10px;" href="/student/apply/{{$basic_info->company_id}}/{{$student->student_id}}">Apply</a>
+        @endif
         <div class="badge badge-light" style="display:block;padding:10px;margin-top:10px;">
         <h4 style="display:inline"><i>{{$basic_info->job_role}}</i></h4>
             <h4 style="display:inline" class="float-right"><i>{{$basic_info->category}}</i></h4>    
