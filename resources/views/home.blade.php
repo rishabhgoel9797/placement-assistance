@@ -9,7 +9,7 @@
                   </div>
                   <div class="mr-5">Companies<div>{{$comp_count}}</div></div>
                 </div>
-                <a class="card-footer text-white clearfix small z-1" href="#">
+                <a class="card-footer text-white clearfix small z-1" href="{{route('viewCompanies')}}">
                   <span class="float-left">View Details</span>
                   <span class="float-right">
                     <i class="fas fa-angle-right"></i>
@@ -25,7 +25,7 @@
                   </div>
                   <div class="mr-5">Teachers<div>{{$tea_count}}</div></div>
                 </div>
-                <a class="card-footer text-white clearfix small z-1" href="#">
+                <a class="card-footer text-white clearfix small z-1" href="{{route('viewTeachers')}}">
                   <span class="float-left">View Details</span>
                   <span class="float-right">
                     <i class="fas fa-angle-right"></i>
@@ -41,7 +41,7 @@
                   </div>
                   <div class="mr-5">Students<div>{{$stu_count}}</div></div>
                 </div>
-                <a class="card-footer text-white clearfix small z-1" href="#">
+                <a class="card-footer text-white clearfix small z-1" href="{{route('viewStudents')}}">
                   <span class="float-left">View Details</span>
                   <span class="float-right">
                     <i class="fas fa-angle-right"></i>
@@ -58,7 +58,7 @@
                 <div class="mr-5">Notifications Sent<div>{{$ins_not}}</div></div>
                 
                 </div>
-                <a class="card-footer text-white clearfix small z-1" href="#">
+                <a class="card-footer text-white clearfix small z-1" href="{{route('viewNotifications')}}">
                   <span class="float-left">View Details</span>
                   <span class="float-right">
                     <i class="fas fa-angle-right"></i>

@@ -49,7 +49,7 @@ class studentPDFController extends Controller
     }
     public function fun_pdf()
     {
-    	$pdf= PDF::loadView('profilestudent');
+    	$pdf= PDF::loadView('student.profilestudent');
     	return $pdf->download('profilestudent.pdf');
     }
 }

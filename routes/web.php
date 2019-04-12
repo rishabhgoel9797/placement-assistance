@@ -34,6 +34,7 @@ Route::post('addTeacher','institute\teacherController@addTeacher')->name('addTea
 Route::get('viewTeachers','institute\teacherController@viewTeachers')->name('viewTeachers');
 Route::get('addCompany','institute\companyController@index')->name('addCompany');
 Route::get('notification','institute\notificationController@index')->name('notification');
+Route::get('viewNotifications','institute\notificationController@viewNotifications')->name('viewNotifications');
 Route::get('viewCompanies','institute\companyController@viewCompanies')->name('viewCompanies');
 Route::get('individualCompany/{id}','institute\CompanyController@individualCompany')->name('individualCompany');
 

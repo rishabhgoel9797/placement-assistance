@@ -34,15 +34,15 @@
                     <table id="example" class="table table-striped table-bordered" style="width:100%">
                     <thead>
                         <tr>
-                            <th>Serial Number</th>
+                            <th>Serial No</th>
                             <th>Company</th>
                             <th>Job Role</th>
                             <th>Location</th>
                             <th>CTC</th>
                             <th>Category</th>
-                            <th>10th %</th>
-                            <th>12th %</th>
-                            <th>Graduate %</th>
+                            <th>10%</th>
+                            <th>12%</th>
+                            <th>Graduate%</th>
                             <th>Status</th>
                             <th>Company Profile</th>
                         </tr>

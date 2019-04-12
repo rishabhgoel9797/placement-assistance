@@ -6,7 +6,7 @@
     <div class="col-md-12">
             <div class="card">
                     <div class="card-header">
-                       Enrolled Teacher Details
+                       Enrolled Teachers Details
                     </div>
                     <div class="card-body">
                     <table id="example" class="table table-striped table-bordered" style="width:100%">

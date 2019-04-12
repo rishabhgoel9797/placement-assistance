@@ -50,4 +50,11 @@ class notificationController extends Controller
             });
         })->download($form['radio_export']);
     }
+
+    public function viewNotifications() {
+        $count=1;
+        $institute_id=Auth::user()->institute_id;
+        $notifications=Notification::where('institute_id',$institute_id)->get();
+        return view('institute.viewNotifications',['notifications'=>$notifications,'count'=>$count]);
+    }
 }
