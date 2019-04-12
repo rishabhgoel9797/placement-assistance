@@ -90,7 +90,7 @@
     </div>
     </div>
     <div class="tab-pane fade" id="ongoing" role="tabpanel" aria-labelledby="ongoing-tab">
-        <div class="tab-pane fade show active" id="upcoming" role="tabpanel" aria-labelledby="ongoing-tab">
+        <div class="tab-pane fade show active" id="ongoing" role="tabpanel" aria-labelledby="ongoing-tab">
                     <div class="card">
                             <div class="card-header">
                                 Ongoing Company Details

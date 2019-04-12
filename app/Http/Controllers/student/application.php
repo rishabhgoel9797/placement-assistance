@@ -27,9 +27,11 @@ class application extends Controller
         $applied=DB::table('company_eligible')->where('student_id',$student->student_id)->where('status','Applied')->get();
         $rejected=DB::table('company_eligible')->where('student_id',$student->student_id)->where('status','Rejected')->get();
         $offered=DB::table('company_eligible')->where('student_id',$student->student_id)->where('status','Offered')->get();
+        $student_ed_details=DB::table('education_details')->where('student_id',$student->student_id)->get();
         return view('student.applications',['ins_not'=>$ins_not,'ins_pro'=>$ins_pro,
         'companies'=>$companies,'applied'=>$applied,
         'rejected'=>$rejected,'offered'=>$offered,
-        'student'=>$student, 'status'=>$status]);
+        'student'=>$student, 'status'=>$status,
+        'student_ed_details'=>$student_ed_details]);
     }
 }

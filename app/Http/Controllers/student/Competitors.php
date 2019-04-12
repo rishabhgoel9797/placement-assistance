@@ -25,8 +25,9 @@ class Competitors extends Controller
         ->where('student_id','!=',$student->student_id)->get();
         $ins_not=DB::table('institute_notifications')->where('institute_id',$institute_id)->get();
         $status=Students::where('student_id', $student->student_id)->value('status');
+        $student_ed_details=DB::table('education_details')->where('student_id',$student->student_id)->get();
         return view('student.competitors',['ins_not'=>$ins_not,'ins_pro'=>$ins_pro,
         'student'=>$student, 'status'=>$status,
-        'comps'=>$comps]);
+        'comps'=>$comps,'student_ed_details'=>$student_ed_details]);
     }
 }

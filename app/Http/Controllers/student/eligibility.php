@@ -24,8 +24,10 @@ class eligibility extends Controller
         $companies = DB::table('table_company')->where('institute_id',$institute_id)->get();
         $edu_details=DB::table('education_details')->where('institute_id',$institute_id)->where('student_id', $student->student_id)->first();
         $status=Students::where('student_id', $student->student_id)->value('status');
+        $student_ed_details=DB::table('education_details')->where('student_id',$student->student_id)->get();
         return view('student.eligibility',['ins_not'=>$ins_not,'ins_pro'=>$ins_pro,
         'companies'=>$companies,'edu_details'=>$edu_details,
-        'student'=>$student, 'status'=>$status]);
+        'student'=>$student, 'status'=>$status,
+        'student_ed_details'=>$student_ed_details]);
     }
 }

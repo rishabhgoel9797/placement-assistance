@@ -29,14 +29,16 @@ class totalCompanies extends Controller
         ->where('category','Dream')->count();
         $superdream=DB::table('table_company')->where('institute_id',$institute_id)
         ->where('category','SuperDream')->count();
-        $categoryWise=DB::table('table_company')->
+        $categoryWise=DB::table('table_company')->where('institute_id',$institute_id)->
         select('category', DB::raw('count(*) as total'))
         ->groupBy('category')
         ->get();
         $status=Students::where('student_id', $student->student_id)->value('status');
+        $student_ed_details=DB::table('education_details')->where('student_id',$student->student_id)->get();
         return view('student.totalcompanies',['ins_not'=>$ins_not,'ins_pro'=>$ins_pro,
         'mass'=>$mass,'dream'=>$dream,'superdream'=>$superdream,'categoryWise'=>$categoryWise,
-        'status'=>$status]);
+        'status'=>$status,
+        'student_ed_details'=>$student_ed_details]);
     }
     public function individualCompany($id) {
         $student=Auth::guard('student')->user();
@@ -48,15 +50,19 @@ class totalCompanies extends Controller
         $company_rounds=DB::table('company_rounds')->where('institute_id', Auth::user()->institute_id)
         ->where('company_id',$id)->get();
         // dd($basic_info);
+        $student_ed_details=DB::table('education_details')->where('student_id',$student->student_id)->get();
         $eligibility = DB::table('company_eligible')->where('company_id',$id)->where('student_id',$student->student_id)->count();
         $status=Students::where('student_id', $student->student_id)->value('status');
         return view('student.individualCompany',['ins_not'=>$ins_not,'ins_pro'=>$ins_pro,'basic_info'=>$basic_info,
-        'company_rounds'=>$company_rounds,'student'=>$student,'eligibility'=>$eligibility, 'status'=>$status]);
+        'company_rounds'=>$company_rounds,'student'=>$student,'eligibility'=>$eligibility, 'status'=>$status,
+        'student_ed_details'=>$student_ed_details]);
     }
     public function apply($companyId,$studentId) {
         $company_name = DB::table('table_company')->where('company_id', $companyId)->value('company_name');
+        $unique_id = DB::table('table_students')->where('student_id', $studentId)->value('unique_id');
         DB::table('company_eligible')->insert(['company_id'=>$companyId,
-        'student_id'=>$studentId,'company_name'=>$company_name]);
+        'student_id'=>$studentId,'company_name'=>$company_name,
+        'student_unique_id'=>$unique_id]);
         return redirect()->back()->with('message', 'You have been successfully applied');
     }
 }

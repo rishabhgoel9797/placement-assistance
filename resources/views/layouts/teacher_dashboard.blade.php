@@ -14,7 +14,7 @@
 
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-      <a class="navbar-brand mr-1" href="#">Teacher</a>
+    <a class="navbar-brand mr-1" href="{{route('teacher.dashboard')}}">Teacher</a>
 
       <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
         <i class="fas fa-bars"></i>
@@ -57,7 +57,7 @@
             <i class="fas fa-user-circle fa-fw"></i>
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-            <a class="dropdown-item" href="{{route('teacherprofile')}}"><i class="fa fa-fw fa-user"></i> Profile</a>
+            {{-- <a class="dropdown-item" href="{{route('teacherprofile')}}"><i class="fa fa-fw fa-user"></i> Profile</a> --}}
             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal"><i class="fa fa-fw fa-power-off"></i> Logout</a>
           </div>
         </li>
@@ -81,12 +81,12 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link" href="{{route('others')}}">
             <i class="fas fa-fw fa-user"></i>
-            <span>Teachers</span></a>
+            <span>Other Teachers</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link" href="{{route('teacher.studentDetails')}}">
             <i class="fas fa-fw fa-graduation-cap"></i>
             <span>Students</span></a>
         </li>
@@ -123,6 +123,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/series-label.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
     <script src="{{asset('js/sb-admin.min.js')}}"></script>
 
 <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>

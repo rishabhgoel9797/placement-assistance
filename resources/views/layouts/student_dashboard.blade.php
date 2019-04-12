@@ -20,7 +20,7 @@
 
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-      <a class="navbar-brand mr-1" href="#">Student</a>
+    <a class="navbar-brand mr-1" href="{{route('student.dashboard')}}">Student</a>
 
       <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
         <i class="fas fa-bars"></i>
@@ -57,11 +57,6 @@
             @endif
           </div>
         </li>
-        <li class="nav-item dropdown no-arrow mx-1">
-          <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-envelope fa-fw"></i>
-          </a>
-        </li>
         <li class="nav-item dropdown no-arrow">
           <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-user-circle fa-fw"></i>
@@ -92,9 +87,11 @@
           <div class="dropdown-menu" aria-labelledby="pagesDropdown">
           
             {{-- Facing issue with add/Update in if-else --}}
+            @if(count($student_ed_details)<1)
             <a class="dropdown-item" href="{{route('addProfile')}}"><i class="fa fa-plus"></i> Add Profile</a>
-            <a class="dropdown-item" href="#"><i class="fa fa-edit"></i> Update Profile</a>
-          
+            @else
+            <a class="dropdown-item" href="#">Profile Added</a>
+            @endif
       
           </div>
         </li>

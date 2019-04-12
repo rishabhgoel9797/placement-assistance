@@ -25,9 +25,11 @@ class studentprofileController extends Controller
         $student_ed_details=DB::table('education_details')->where('student_id',$student->student_id)->first();
         // dd($student_ed_details);
         $status=Students::where('student_id', $student->student_id)->value('status');
+        $student_ed_details=DB::table('education_details')->where('student_id',$student->student_id)->get();
         return view('student.profilestudent',array('user' => Auth::user(),'ins_not'=>$ins_not,
         'ins_pro'=>$ins_pro,'student_ed_details'=>$student_ed_details,'student'=>$student,
-        'status'=>$status));
+        'status'=>$status,
+        'student_ed_details'=>$student_ed_details));
     }
 
     public function update_avatar(Request $request)

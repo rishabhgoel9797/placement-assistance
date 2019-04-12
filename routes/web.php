@@ -52,10 +52,16 @@ Route::prefix('teacher')->group(function(){
     Route::get('/login', 'Auth\teacherLoginController@index')->name('teacher.login');
     Route::post('/login', 'Auth\teacherLoginController@login')->name('teacher.login.submit');
     Route::get('/logout','Auth\teacherLoginController@logout')->name('teacher.logout');
-    Route::get('teacherprofile','teacher\teacherprofileController@index')->name('teacherprofile');
-    Route::post('teacherprofile','teacher\teacherprofileController@update_avatar')->name('teacherprofile');
+    // Route::get('teacherprofile','teacher\teacherprofileController@index')->name('teacherprofile');
+    // Route::post('teacherprofile','teacher\teacherprofileController@update_avatar')->name('teacherprofile');
+    Route::post('/addNotification','teacher\sendnotificationController@sendnotification')->name('teacher.addNotification');
     Route::get('sendNotification','teacher\sendnotificationController@index')->name('sendNotification');
     Route::get('companyDetails','teacher\companyDetails@index')->name('teacher.companyDetails');
+    Route::get('eligibleStudents/{id}','teacher\companyDetails@eligible')->name('teacher.eligibleStudents');
+    Route::get('changeStudentStatus/{companyId}/{studentId}/{status}','teacher\companyDetails@updateStatus');
+    Route::get('others','teacher\OtherTeachers@index')->name('others');
+    Route::get('studentDetails','teacher\studentDetails@index')->name('teacher.studentDetails');
+    Route::get('studentApproved/{id}','teacher\studentDetails@approve')->name('teacher.studentApproved');
 });
 
 Route::prefix('student')->group(function(){

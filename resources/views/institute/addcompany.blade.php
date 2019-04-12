@@ -58,7 +58,7 @@
     <h3 class="card-title">Company Registration</h3>
     </div>
 <div class="card-block">
-<form action="{{route('addCompany')}}" method="post">
+<form enctype="multipart/form-data" action="{{route('addCompany')}}" method="post">
     @csrf
 <div class="col-md-12 col-sm-12">
     <div class="row" style="margin-top:15px;">
@@ -170,7 +170,7 @@
         <div class="row">
         <div class="form-group col-md-12 col-sm-12">
         <label>Select Company logo </label>
-        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+        <input type="file" name="avatar" class="form-control-file">
 
       </div>
   </div>

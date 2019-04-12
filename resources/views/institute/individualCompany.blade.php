@@ -27,7 +27,7 @@ border-radius: 10px;
         <div class="company_info">
                 <h2 style="margin-left:2%;">{{$basic_info->company_name}}</h2>
                 <hr>
-        <img src="http://www.stickpng.com/assets/images/580b57fcd9996e24bc43c51f.png" class="img-responsive" style="height:50px;">
+        <img src="/uploads/avatars/institute/{{$basic_info->avatar}}" class="img-responsive" style="height:200px;">
         <span class="alert alert-success float-right">{{$basic_info->ctc}}</span>
         <span class="alert alert-danger float-right" style="margin-right:10px;">{{$basic_info->status}}</span>
         <div class="badge badge-light" style="display:block;padding:10px;margin-top:10px;">

@@ -52,7 +52,6 @@
     <div class="card-body">
         <form action="{{route('addNotification')}}" method="post">
             @csrf
-          
               <div class="row" style="margin-top:15px;">
               <div class="form-group col-md-12 col-sm-12">
                       <label for="name">Title</label>

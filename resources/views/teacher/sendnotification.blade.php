@@ -50,9 +50,8 @@
         Notification Panel
     </div>
     <div class="card-body">
-        <form action="" method="post">
+        <form action="{{route('teacher.addNotification')}}" method="post">
             @csrf
-          
               <div class="row" style="margin-top:15px;">
               <div class="form-group col-md-12 col-sm-12">
                       <label for="name">Title</label>
@@ -78,7 +77,7 @@
                         Number of Notifications Sent
                     </div>
                     <div class="card-body" style="text-align:center">
-                        <h1 style="font-size:230px;">3</h1>                        
+                    <h1 style="font-size:230px;">{{$not_count}}</h1>                        
                     </div>
                   </div>
     </div>
